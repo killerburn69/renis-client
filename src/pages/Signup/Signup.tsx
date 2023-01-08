@@ -7,27 +7,28 @@ import {
   Box,
   FormControl,
   Checkbox,
+  Button,
 } from '@chakra-ui/react'
 import logo from '../../imgs/logobaby.png'
-import { Background, BackgroundCustom } from '../../theme/background/background'
-import Wrapper from '../../components/Wrapper'
+import Mainbackground from '../../components/Mainbackground'
+import Subbackground from '../../components/Subbackground'
+import TwoColumn from '../../components/TwoColumn'
 import Inputs from '../../components/Inputs'
-import Buttons from '../../components/Button'
 import RightBackground from '../../components/RightBackground'
 const Signup = () => {
   return (
-    <Background>
-      <BackgroundCustom>
-        <Wrapper>
+    <Mainbackground>
+      <Subbackground>
+        <TwoColumn>
           <GridItem textAlign={'center'} p={4}>
             <Image
               src={logo}
               boxSize={'36'}
               mx={'auto'}
-              marginBottom={'3'}
+              mb={'3'}
               objectFit={'contain'}
             ></Image>
-            <Text fontSize={28} fontWeight={'semibold'} marginBottom={'8'}>
+            <Text textStyle="h1" mb="3">
               Register Account!
             </Text>
             <Box maxW={'lg'} mx={'auto'}>
@@ -50,19 +51,23 @@ const Signup = () => {
                   placeholder="Your password"
                   type="password"
                 />
-                <Flex marginBottom={'8'}>
-                    <Checkbox colorScheme={'purpleButton'}>Are you a baby sister ?</Checkbox>
+                <Flex mb={'8'}>
+                  <Checkbox colorScheme={'purpleButton'}>
+                    Are you a baby sister ?
+                  </Checkbox>
                 </Flex>
-                <Buttons content="Register" size="md" width="full" type="submit" />
+                <Button w={'full'} size="md" variant="custom">
+                  Register
+                </Button>
               </FormControl>
             </Box>
           </GridItem>
           <GridItem zIndex={'docked'} p={4}>
             <RightBackground />
           </GridItem>
-        </Wrapper>
-      </BackgroundCustom>
-    </Background>
+        </TwoColumn>
+      </Subbackground>
+    </Mainbackground>
   )
 }
 
