@@ -1,38 +1,44 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.swiper {
+    width: 100%;
+    height: 100%;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.8);
+    filter: drop-shadow(7px 4px 20px rgba(0, 0, 0, 0.8));
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    /* -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center; */
   }
-  to {
-    transform: rotate(360deg);
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 95%;
+    object-fit: cover;
+    filter: brightness(82%) invert(1%) drop-shadow(7px 4px 20px rgba(0, 0, 0, 0.25));
   }
-}
+  .swiper-pagination .swiper-pagination-bullet {
+    width: 25px;
+    height: 2px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    opacity: 1;
+    background: #747474;
+    border-radius: 0;
+  }
+  .swiper-pagination .swiper-pagination-bullet-active {
+    background: #fff;
+  }
