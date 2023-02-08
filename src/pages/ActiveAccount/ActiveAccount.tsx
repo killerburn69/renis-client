@@ -14,7 +14,7 @@ import Subbackground from '../../components/Subbackground'
 import TwoColumn from '../../components/TwoColumn'
 import Inputs from '../../components/Inputs'
 import RightBackground from '../../components/RightBackground'
-const Active = () => {
+const ActiveAccount = () => {
   return (
     <Mainbackground>
       <Subbackground>
@@ -32,12 +32,12 @@ const Active = () => {
             </Text>
             <Box maxW={'lg'} mx={'auto'}>
               <FormControl>
-                <Inputs id='email' label='Email' placeholder='Your email' type='email'/>
-                <Inputs id='code' label='Activation code' placeholder='Activation code' type='text'/>
+                {/* <Inputs id='email' label='Email' placeholder='Your email' type='email'/>
+                <Inputs id='code' label='Activation code' placeholder='Activation code' type='text'/> */}
                 <Flex justify={'flex-end'} mb={'8'}>
                   <Text>Forget your password?</Text>                
                 </Flex>
-                <Button w="full" size="md" variant="custom">Login</Button>
+                <Button w="full" size="md" variant="customButtonBase">Login</Button>
               </FormControl>
             </Box>
           </GridItem>
@@ -50,4 +50,4 @@ const Active = () => {
   )
 }
 
-export default Active
+export default ActiveAccount

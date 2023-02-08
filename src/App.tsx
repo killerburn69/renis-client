@@ -3,7 +3,7 @@
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Signup from './pages/Signup/Signup';
 import Signin from './pages/Signin/Signin';
-import Active from './pages/ActiveAccount/Active';
+import ActiveAccount from './pages/ActiveAccount/ActiveAccount';
 import Home from './pages/Home/Home';
 function App() {
   return (
@@ -12,8 +12,8 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/signin' element={<Signin/>}/>
         <Route path='/signup' element={<Signup/>}/>
-        <Route path='/active' element={<Active/>}/>
-      </Routes>
+        <Route path='/active' element={<ActiveAccount/>}/>
+      </Routes> 
     </Router>
   );
 }

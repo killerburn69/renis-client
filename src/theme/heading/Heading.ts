@@ -1,10 +1,10 @@
 import { defineStyle, defineStyleConfig } from "@chakra-ui/react";
-const custom = defineStyle({
+const headingTitle = defineStyle({
     color:"white",
     fontFamily:"Kalam",
     fontWeight:"semibold",
 })
-const customHeadingBaby = defineStyle({
+const headingBase = defineStyle({
     color:"white",
     fontFamily:"Open Sans",
     fontWeight:"semibold",
@@ -12,7 +12,7 @@ const customHeadingBaby = defineStyle({
 })
 export const headingTheme = defineStyleConfig({
     variants:{
-        "custom":custom,
-        "customNani":customHeadingBaby,
+        headingTitle:headingTitle,
+        headingBase:headingBase,
     }
 })

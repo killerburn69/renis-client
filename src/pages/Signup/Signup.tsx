@@ -33,7 +33,7 @@ const Signup = () => {
             </Text>
             <Box maxW={'lg'} mx={'auto'}>
               <FormControl>
-                <Inputs
+                {/* <Inputs
                   id="email"
                   label="Email"
                   placeholder="Your email"
@@ -50,13 +50,13 @@ const Signup = () => {
                   label="Confirm password"
                   placeholder="Your password"
                   type="password"
-                />
+                /> */}
                 <Flex mb={'8'}>
                   <Checkbox colorScheme={'purpleButton'}>
                     Are you a baby sister ?
                   </Checkbox>
                 </Flex>
-                <Button w={'full'} size="md" variant="custom">
+                <Button w={'full'} size="md" variant="customButtonBase">
                   Register
                 </Button>
               </FormControl>

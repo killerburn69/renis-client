@@ -2,9 +2,10 @@ import { Box, Center, Flex, Container, Image, Link } from '@chakra-ui/react'
 import {Link as RouterLink} from 'react-router-dom'
 import React from 'react'
 import logo from '../imgs/logobaby.png'
+import { navbarBackground } from '../theme/background/Background'
 const Navbar = () => {
   return (
-    <Box zIndex="dropdown" bg='grey.100' boxShadow="md" position={'sticky'} top='0' left='0'>
+    <Box sx={navbarBackground}>
       <Container maxW={"container.xl"} color="secondary_color">
         <Flex gap={'2'} align={'center'} justify={'space-between'}>
           <Image src={logo} boxSize={'16'} objectFit={'contain'}></Image>
@@ -29,8 +30,8 @@ const Navbar = () => {
           </Box>
           <Box>
             <Flex gap='2'>
-              <Link bg="secondary_color" px="5" py="2" variant="custom" as={RouterLink} to="/signin">Sign in</Link>
-              <Link bg="secondary_color" px="5" py="2" variant="custom" as={RouterLink} to="/signup">Register</Link>
+              <Link bg="secondary_color" px="5" py="2" variant="linkFont" as={RouterLink} to="/signin">Sign in</Link>
+              <Link bg="secondary_color" px="5" py="2" variant="linkFont" as={RouterLink} to="/signup">Register</Link>
             </Flex>
           </Box>
         </Flex>

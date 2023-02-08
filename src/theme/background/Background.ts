@@ -50,3 +50,37 @@ export const subBackground = {
         clipPath:'polygon(41% -3%, 100% 0, 100% 100%, 72% 102%)',
     }
 }
+
+export const toastBackground = {
+    color:"white",
+    py:"3",
+    px:"5",
+    bg:"white",
+    alignItems:"center",
+    gap:"2",
+    boxShadow:"xl",
+    rounded:"xl"
+}
+
+export const tagBackground = {
+    alignItems:"center",
+    borderColor:"grey.250",
+    borderWidth:"1px",
+    p:"1",
+    borderRadius:"lg",
+    gap:"1"
+}
+export const navbarBackground = {
+    zIndex:"dropdown",
+    bg:"grey.100",
+    boxShadow:"md",
+    position:"sticky",
+    top:"0",
+    left:"0"
+}
+export const backgroundIconToast = {
+    p:"6",
+    w:"fit-content",
+    h:"full",
+    borderRadius:"full"
+}
