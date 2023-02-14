@@ -31,6 +31,7 @@ const buttonSearch = defineStyle({
 const customButtonReject = defineStyle({
   bg: `reject_button.100`,
   transition: 'transform 0.15s ease-out, background 0.15s ease-out',
+  boxShadow:'xl',
   _hover: {
     bg: `reject_button.200`,
   },
@@ -47,6 +48,7 @@ const customButtonReject = defineStyle({
 const customButtonAccept = defineStyle({
   bg: `purpleButton.500`,
   transition: 'transform 0.15s ease-out, background 0.15s ease-out',
+  boxShadow:'xl',
   _hover: {
     bg: `purpleButton.600`,
   },

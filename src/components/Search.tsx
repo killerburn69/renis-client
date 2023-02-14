@@ -4,10 +4,10 @@ import { Box, Center, IconButton, Input  } from '@chakra-ui/react'
 import {SearchIcon} from '@chakra-ui/icons'
 const Search = () => {
   return (
-    <Box py="4" bg="grey.100">
+    <Box py="2" bg="grey.100">
         <Center maxW="xl" mx="auto">
-            <Input bg="white" mr="3" placeholder='Search baby sister’s name'/>
-            <IconButton color="white" borderRadius="md" variant="buttonSearch" aria-label='Search database' icon={<SearchIcon/>}/>
+            <Input bg="white" mr="3" ml="-1" placeholder='Search baby sister’s name'/>
+            <IconButton w="20" fontSize="xl" color="white" borderRadius="md" variant="buttonSearch" aria-label='Search database' icon={<SearchIcon/>}/>
         </Center>
     </Box>
   )

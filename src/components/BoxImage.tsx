@@ -21,7 +21,7 @@ const BoxImage= ({list}:Props) => {
     <Box w="lg" h="2xl" borderRadius="2xl" overflow="hidden" position="relative">
       <Swiper pagination={pagination} modules={[Pagination]} className="mySwiper">
           {list.imgArray.map((itemImage,index)=>(
-            <SwiperSlide key={itemImage.id}>
+            <SwiperSlide className='slide-bg' key={itemImage.id}>
               <Image src={itemImage.img}></Image>
             </SwiperSlide>
           ))}
@@ -32,9 +32,9 @@ const BoxImage= ({list}:Props) => {
             {list.vip && <Image src={Crown}/>}
           </Flex>
           <Text color="grey.250" fontSize="sm" mb="6">{list.description}</Text>
-          <Flex gap="2">
+          <Flex gap="3">
             {list.tagArray.map((itemTag,index)=>(
-              <Flex sx={tagBackground} key={itemTag.id} >
+              <Flex sx={tagBackground} key={itemTag.id}>
                 <Image src={itemTag.icon} boxSize="5"/>
                 <Text color="grey.250" fontSize="xs">{itemTag.title}</Text>
              </Flex>

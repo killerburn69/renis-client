@@ -26,6 +26,7 @@ export const mainBackground = {
     "display":"flex",
     "justifyContent":"center",
     "alignItems":"center",
+
 }
 
 export const subBackground = {
@@ -83,4 +84,39 @@ export const backgroundIconToast = {
     w:"fit-content",
     h:"full",
     borderRadius:"full"
+}
+export const backgroundIconNotification = {
+    bg:"none",
+    fontSize:"3xl",
+    size:"md",
+    _hover: {
+        bg: `none`,
+    },
+    _active: {
+        bg: `none`,
+    },
+
+}
+export const backgroundAmountNotification = {
+    justifyContent:"center",
+    alignItems:"center",
+    position:"absolute",
+    bg:"red.800",
+    top:"0",
+    right:"1",
+    color:"white",
+    w:"5",
+    h:"5",
+    borderRadius:"full",
+}
+export const backgroundOverlay = {
+    justifyContent:"center",
+    alignItems:"center",
+    position:"absolute",
+    w:"full",
+    h:"full",
+    bg:"rgba(0,0,0,0.7)",
+    top:"0",
+    left:"0",
+    zIndex:"overlay"
 }

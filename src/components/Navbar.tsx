@@ -1,42 +1,48 @@
-import { Box, Center, Flex, Container, Image, Link } from '@chakra-ui/react'
-import {Link as RouterLink} from 'react-router-dom'
-import React from 'react'
+import { Box, Center, Flex, Container, Image, Link, IconButton,Text } from '@chakra-ui/react'
+import {Link as RouterLink, useLocation} from 'react-router-dom'
 import logo from '../imgs/logobaby.png'
-import { navbarBackground } from '../theme/background/Background'
+import {backgroundIconNotification, backgroundAmountNotification } from '../theme/background/Background'
+import { BellIcon } from '@chakra-ui/icons'
 const Navbar = () => {
+  const location = useLocation()
+  console.log(location.pathname);
+  
   return (
-    <Box sx={navbarBackground}>
-      <Container maxW={"container.xl"} color="secondary_color">
-        <Flex gap={'2'} align={'center'} justify={'space-between'}>
+      <Container maxW="full" color="secondary_color" borderBottom="2px solid" borderColor="grey.150">
+        <Flex gap={'2'} align={'center'} justify={'space-around'}>
           <Image src={logo} boxSize={'16'} objectFit={'contain'}></Image>
           <Box>
             <Flex justify={'center'} align={'center'} h={'full'}>
               <Center>
-                <Link p='6' _hover={{bg:"border"}} as={RouterLink} to="/">Home</Link>
+                <Link p='6' _hover={{bg:"border"}} as={RouterLink} to="/home" bg={location.pathname === '/home' ? "border" : "none"}>Home</Link>
               </Center>
               <Center>
-                <Link p='6' _hover={{bg:"border"}}>Profile</Link>
+                <Link p='6' _hover={{bg:"border"}} as={RouterLink} to="/profile" bg={location.pathname === '/profile' ? "border" : "none"}>Profile</Link>
               </Center>
               <Center>
-                <Link p='6' _hover={{bg:"border"}}>Matches</Link>
+                <Link p='6' _hover={{bg:"border"}} as={RouterLink} to="/" bg={location.pathname === '/match' ? "border" : "none"}>Matches</Link>
               </Center>
               <Center>
-                <Link p='6' _hover={{bg:"border"}}>In-contract</Link>
+                <Link p='6' _hover={{bg:"border"}} as={RouterLink} to="/" bg={location.pathname === '/contract' ? "border" : "none"}>In-contract</Link>
               </Center>
               <Center>
-                <Link p='6' _hover={{bg:"border"}}>VIP</Link>
+                <Link p='6' _hover={{bg:"border"}} as={RouterLink} to="/" bg={location.pathname === '/vip' ? "border" : "none"}>VIP</Link>
               </Center>
             </Flex>
           </Box>
           <Box>
             <Flex gap='2'>
-              <Link bg="secondary_color" px="5" py="2" variant="linkFont" as={RouterLink} to="/signin">Sign in</Link>
-              <Link bg="secondary_color" px="5" py="2" variant="linkFont" as={RouterLink} to="/signup">Register</Link>
+              <Box position="relative">
+                <IconButton aria-label='notification' icon={<BellIcon/>} sx={backgroundIconNotification}/>
+                <Flex sx={backgroundAmountNotification}>
+                  <Text fontSize="10">2</Text>
+                </Flex>
+              </Box>
+              <Link bg="secondary_color" px="5" py="2" variant="linkFont" as={RouterLink} to="/signup">Sign out</Link>
             </Flex>
           </Box>
         </Flex>
       </Container>
-    </Box>
   )
 }
 

@@ -19,6 +19,11 @@ export interface Information {
     imgArray: Img[];
     tagArray:Tag[];
 }
+export interface Banner {
+    id:number;
+    name:string;
+    desc:string
+}
 export const ArrayImage:Img[]=[
     {
         id:"1",
@@ -76,4 +81,44 @@ export const ArrayListInformation:Information[]=[
         imgArray:ArrayImage,
         tagArray:ArrayTag,
     }
+]
+
+export const arrayBanner:Banner[]=[
+    {
+        id:1,
+        name:"Layle",
+        desc:"So cute, generous"
+    },
+    {
+        id:2,
+        name:"Mike",
+        desc:"happy boy, loyalty"
+    },
+    {
+        id:3,
+        name:"Mike",
+        desc:"happy boy, loyalty"
+    },
+    {
+        id:4,
+        name:"Mike",
+        desc:"happy boy, loyalty"
+    },
+    {
+        id:5,
+        name:"Mike",
+        desc:"happy boy, loyalty"
+    },
+    {
+        id:6,
+        name:"Mike",
+        desc:"happy boy, loyalty"
+    },
+    {
+        id:7,
+        name:"Mike",
+        desc:"happy boy, loyalty"
+    },
+
+    
 ]

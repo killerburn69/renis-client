@@ -5,7 +5,7 @@ const navbarFont = defineStyle({
     fontSize:"18",
     _hover:{
         textDecoration:"none",
-    }
+    },
 })
 const customLinkFont = defineStyle({
     fontWeigth:"semibold",
