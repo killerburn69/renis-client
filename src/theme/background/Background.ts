@@ -26,6 +26,7 @@ export const mainBackground = {
     "display":"flex",
     "justifyContent":"center",
     "alignItems":"center",
+
 }
 
 export const subBackground = {
@@ -49,4 +50,92 @@ export const subBackground = {
         opacity:'0.8',
         clipPath:'polygon(41% -3%, 100% 0, 100% 100%, 72% 102%)',
     }
+}
+
+export const toastBackground = {
+    color:"white",
+    py:"3",
+    px:"5",
+    bg:"white",
+    alignItems:"center",
+    gap:"2",
+    boxShadow:"xl",
+    rounded:"xl"
+}
+
+export const tagBackground = {
+    alignItems:"center",
+    borderColor:"grey.250",
+    borderWidth:"1px",
+    p:"1",
+    borderRadius:"lg",
+    gap:"1"
+}
+export const navbarBackground = {
+    zIndex:"dropdown",
+    bg:"grey.100",
+    boxShadow:"md",
+    position:"sticky",
+    top:"0",
+    left:"0"
+}
+export const backgroundIconToast = {
+    p:"6",
+    w:"fit-content",
+    h:"full",
+    borderRadius:"full"
+}
+export const backgroundIconNotification = {
+    bg:"none",
+    fontSize:"3xl",
+    size:"md",
+    _hover: {
+        bg: `none`,
+    },
+    _active: {
+        bg: `none`,
+    },
+
+}
+export const backgroundAmountNotification = {
+    justifyContent:"center",
+    alignItems:"center",
+    position:"absolute",
+    bg:"red.800",
+    top:"0",
+    right:"1",
+    color:"white",
+    w:"5",
+    h:"5",
+    borderRadius:"full",
+}
+export const backgroundOverlay = {
+    justifyContent:"center",
+    alignItems:"center",
+    position:"fixed",
+    w:"full",
+    h:"100vh",
+    bg:"rgba(0,0,0,0.7)",
+    top:"0",
+    left:"0",
+    zIndex:"overlay"
+}
+export const backgroundImageBabyProfile = {
+    position:"relative",
+    w:"3xl",
+    h:"96",
+    borderRadius:"lg",
+    overflow:"hidden",
+    marginBottom:"7",
+    _before:{
+        content: "''",
+        position:"absolute",
+        w:"full",
+        bottom:"0",
+        left:"0",
+        h:"40%",
+        bg:"linear-gradient(180deg, rgba(47, 48, 49, 0) 1.48%, #000000 100%)",
+        zIndex: "docked",
+    },
+    boxShadow:"2xl",
 }
