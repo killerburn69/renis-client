@@ -112,11 +112,30 @@ export const backgroundAmountNotification = {
 export const backgroundOverlay = {
     justifyContent:"center",
     alignItems:"center",
-    position:"absolute",
+    position:"fixed",
     w:"full",
-    h:"full",
+    h:"100vh",
     bg:"rgba(0,0,0,0.7)",
     top:"0",
     left:"0",
     zIndex:"overlay"
+}
+export const backgroundImageBabyProfile = {
+    position:"relative",
+    w:"3xl",
+    h:"96",
+    borderRadius:"lg",
+    overflow:"hidden",
+    marginBottom:"7",
+    _before:{
+        content: "''",
+        position:"absolute",
+        w:"full",
+        bottom:"0",
+        left:"0",
+        h:"40%",
+        bg:"linear-gradient(180deg, rgba(47, 48, 49, 0) 1.48%, #000000 100%)",
+        zIndex: "docked",
+    },
+    boxShadow:"2xl",
 }

@@ -9,8 +9,9 @@ const Navbar = () => {
   
   return (
       <Container maxW="full" color="secondary_color" borderBottom="2px solid" borderColor="grey.150">
-        <Flex gap={'2'} align={'center'} justify={'space-around'}>
-          <Image src={logo} boxSize={'16'} objectFit={'contain'}></Image>
+        <Flex gap={'1'} align={'center'} justify={'space-around'}>
+          
+          <Image src={logo} boxSize={'16'} objectFit={'contain'} marginLeft="10"></Image>
           <Box>
             <Flex justify={'center'} align={'center'} h={'full'}>
               <Center>

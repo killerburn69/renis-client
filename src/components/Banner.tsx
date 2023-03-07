@@ -12,8 +12,8 @@ const Banner = () => {
       <Swiper slidesPerView={5} spaceBetween={30} className="slide-main">
         {
           arrayBanner.map((banner,index)=>(
-            <SwiperSlide className='slide-banner'>
-              <BannerItem banner={banner} key={banner.id}/>
+            <SwiperSlide className='slide-banner' key={banner.id} >
+              <BannerItem banner={banner} />
             </SwiperSlide>
           ))
         }
