@@ -8,7 +8,7 @@ const Navbar = () => {
   console.log(location.pathname);
   
   return (
-      <Container maxW="full" color="secondary_color" borderBottom="2px solid" borderColor="grey.150">
+      <Container maxW="full" color="secondary_color">
         <Flex gap={'1'} align={'center'} justify={'space-around'}>
           
           <Image src={logo} boxSize={'16'} objectFit={'contain'} marginLeft="10"></Image>
@@ -31,7 +31,7 @@ const Navbar = () => {
               </Center>
             </Flex>
           </Box>
-          <Box>
+          <Box marginRight="10">
             <Flex gap='2'>
               <Box position="relative">
                 <IconButton aria-label='notification' icon={<BellIcon/>} sx={backgroundIconNotification}/>
@@ -39,7 +39,7 @@ const Navbar = () => {
                   <Text fontSize="10">2</Text>
                 </Flex>
               </Box>
-              <Link bg="secondary_color" px="5" py="2" variant="linkFont" as={RouterLink} to="/signup">Sign out</Link>
+              <Link bg="secondary_color" px="3" py="1" h="fit-content" m="auto 0" variant="linkFont" as={RouterLink} to="/signup">Sign out</Link>
             </Flex>
           </Box>
         </Flex>

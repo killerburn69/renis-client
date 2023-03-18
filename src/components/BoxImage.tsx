@@ -35,7 +35,7 @@ const BoxImage= ({list}:Props) => {
           <Flex gap="3">
             {list.tagArray.map((itemTag,index)=>(
               <Flex sx={tagBackground} key={itemTag.id}>
-                <Image src={itemTag.icon} boxSize="5"/>
+                <Image src={itemTag.icon} boxSize="4"/>
                 <Text color="grey.250" fontSize="xs">{itemTag.title}</Text>
              </Flex>
             ))}

@@ -15,6 +15,7 @@ import ProfileBg from '../../imgs/bgprofile.png'
 import About from './Components/About'
 import CardInfomation from './Components/CardInfomation'
 import Expectation from './Components/Expectation'
+import Experience from './Components/Experience'
 
 const Profile = () => {
  
@@ -25,7 +26,7 @@ const Profile = () => {
         <TabList>
           <Tab>More about me</Tab>
           <Tab mx="12">My expectation</Tab>
-          <Tab>Banner</Tab>
+          <Tab>Experience</Tab>
         </TabList>
         <Grid templateColumns="repeat(7,1fr)">
           <GridItem colSpan={2} textAlign="right">
@@ -40,7 +41,7 @@ const Profile = () => {
                 <Expectation/>
               </TabPanel>
               <TabPanel>
-                <Text>Only for Vip</Text>
+                <Experience/>
               </TabPanel>
             </TabPanels>
           </GridItem>

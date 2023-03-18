@@ -139,3 +139,49 @@ export const backgroundImageBabyProfile = {
     },
     boxShadow:"2xl",
 }
+export const textBackgroundImageBabyProfile = {
+    position:"absolute",
+    bottom:"5",
+    left:"50%",
+    transform:"translateX(-50%)",
+    fontFamily:"Kalam",
+    color:"white",
+    fontSize:"2xl",
+    zIndex:"dropdown",
+}
+export const backgroundFlexProfile={
+    alignItems:"center",
+    justifyContent:"center",
+    w:"6", 
+    h:"6",
+    cursor:"pointer"
+}
+export const backgroundTextProfile={
+    fontSize:"15",
+    fontWeight:"bold",
+    color:"secondary_color",
+    position:"absolute",
+}
+export const backgroundBoxProfile={
+    borderRadius:"xl",
+    w:"32",
+    px:"6",
+    py:"3",
+    bg:"border",
+    position:"absolute"
+}
+export const backgroundBoxBeforeProfile={
+    content:"''",
+    position:"absolute",
+    w:"3",
+    h:"3",
+    bg:"border",
+    transform: "rotate(45deg)"
+}
+export const backgroundModalProfile = {
+    w:"6",
+    h:"6",
+    border:"1px solid #E3A5A8",
+    borderRadius:"full",
+    cursor:"pointer"
+}

@@ -2,6 +2,9 @@ import img1 from '../imgs/pexels-keira-burton-6624452.png'
 import img2 from '../imgs/pexels-photo-929436.jpeg'
 import img3 from '../imgs/pexels-photo-2869318.jpeg'
 import Baby from '../imgs/baby-boy.svg'
+import BabyMain from '../imgs/babyimgmain.png'
+import BabyMain2 from '../imgs/pexels-photo-929436.jpeg'
+import { backgroundFlexProfile,backgroundBoxBeforeProfile, backgroundBoxProfile, backgroundTextProfile } from '../theme/background/Background'
 interface Img {
     id:string;
     img: string;
@@ -10,6 +13,16 @@ interface Tag {
     id:string;
     icon:string;
     title:string;
+}
+interface chart {
+    id:string,
+    chartHeading:string,
+    chartTitle:string,
+    backgroundBoxWrapper:object,
+    backgroundFlex:object,
+    backgroundText:object,
+    backgroundBox:object,
+    backgroundBoxBefore:object,
 }
 export interface Information {
     id:number;
@@ -24,6 +37,12 @@ export interface Banner {
     name:string;
     desc:string
 }
+export interface BabyProfileImg {
+    id:string,
+    img:string,
+}
+
+
 export const ArrayImage:Img[]=[
     {
         id:"1",
@@ -121,4 +140,161 @@ export const arrayBanner:Banner[]=[
     },
 
     
+]
+
+export const ArrayBabyImgProfile:BabyProfileImg[]=[
+    {
+        id:"1",
+        img:BabyMain
+    },
+    {
+        id:"2",
+        img:BabyMain2
+    }
+]
+
+export const ArraChartProfile:chart[]=[
+    {
+        id:"1",
+        chartHeading:"Characteristics",
+        chartTitle:"Age range: 2-8 weeks",
+        backgroundBoxWrapper:{
+            top:"-3%",
+            left:"50%",
+            transform:"translate(-50%,3%)"
+        },  
+        backgroundFlex:{
+            ...backgroundFlexProfile,
+        },
+        backgroundText:{
+            ...backgroundTextProfile,
+            top:"-6",
+            left:"-10"
+        },
+        backgroundBox:{
+            ...backgroundBoxProfile,
+            top:"-2",
+            left:"16"
+        },
+        backgroundBoxBefore:{
+            ...backgroundBoxBeforeProfile,
+            top:"3",
+            left:"-1",
+        }
+    },
+    {
+        id:"2",
+        chartHeading:"Distance",
+        chartTitle:"Age range: 2-8 weeks",
+        backgroundBoxWrapper:{
+            top:"38%",
+            right:"-3%",
+            transform:"translate(3%,-38%)"
+        },
+        backgroundFlex:{
+            ...backgroundFlexProfile,
+            
+        },
+        backgroundText:{
+            ...backgroundTextProfile,
+            top:"0",
+            left:"7"
+        },
+        backgroundBox:{
+            ...backgroundBoxProfile,
+            top:"10",
+            left:"-2"
+        },
+        backgroundBoxBefore:{
+            ...backgroundBoxBeforeProfile,
+            top:"-1",
+            left:"3",
+        }
+    },
+    {
+        id:"3",
+        chartHeading:"Age",
+        chartTitle:"Age range: 2-8 weeks",
+        backgroundBoxWrapper:{
+            top:"38%",
+            left:"-3%",
+            transform:"translate(3%,-38%)"
+        },
+        backgroundFlex:{
+            ...backgroundFlexProfile,
+        },
+        backgroundText:{
+            ...backgroundTextProfile,
+            top:"0",
+            right:"7"
+        },
+        backgroundBox:{
+            ...backgroundBoxProfile,
+            bottom:"10",
+            right:"-2"
+        },
+        backgroundBoxBefore:{
+            ...backgroundBoxBeforeProfile,
+            bottom:"-1",
+            right:"3",
+        }
+    },
+    {
+        id:"4",
+        chartHeading:"Paid",
+        chartTitle:"Age range: 2-8 weeks",
+        backgroundBoxWrapper:{
+            bottom:"-2%",
+            left:"16%",
+            transform:"translate(-16%,2%)"
+        },
+        backgroundFlex:{
+            ...backgroundFlexProfile,
+           
+        },
+        backgroundText:{
+            ...backgroundTextProfile,
+            top:"2",
+            right:"7"
+        },
+        backgroundBox:{
+            ...backgroundBoxProfile,
+            bottom:"10",
+            right:"-2"
+        },
+        backgroundBoxBefore:{
+            ...backgroundBoxBeforeProfile,
+            bottom:"-1",
+            right:"3",
+        }
+    },
+    {
+        id:"5",
+        chartHeading:"Type",
+        chartTitle:"odjasjdlajsldas",
+        backgroundBoxWrapper:{
+            bottom:"-2%",
+            right:"16%",
+            transform:"translate(-16%,2%)"
+        },
+        backgroundFlex:{
+            ...backgroundFlexProfile,
+            
+        },
+        backgroundText:{
+            ...backgroundTextProfile,
+            top:"2",
+            left:"7"
+        },
+        backgroundBox:{
+            ...backgroundBoxProfile,
+            bottom:"10",
+            left:"-2"
+        },
+        backgroundBoxBefore:{
+            ...backgroundBoxBeforeProfile,
+            bottom:"-1",
+            left:"3",
+        }
+    }
 ]
