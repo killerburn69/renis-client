@@ -12,8 +12,11 @@ export const color = {
         grey:{
             50:"#F4F3F3",
             100:"#F4F4F4",
+            150:"#C0C0C0",
             200:"#E5E5E5",
+            250:"#FAFAFA",
             300:"#D9D9D9",
+            350:"#5f5f5f",
             400:"#D1D1D1",
             500:"#747474",
             800:"#848484",
@@ -23,7 +26,12 @@ export const color = {
         sub_primary_color:"#CC7A7A",
         secondary_color:"#8682A7",
         heading_color:"#8682A7",
-        font_color:"#D78AA8",
+        font_color:{
+            50:"#E58FB1",
+            100:"#D78AA8",
+            200:"#D484A3",
+
+        },
         paragraph_color:"#5F5F5F",
         rate:"#FF9900",
         unrate:"#D1D1D1",
@@ -33,6 +41,11 @@ export const color = {
             500:"#8682A7",
             600:"#6B6888",
             700:"#595674"
+        },
+        reject_button:{
+            100:"#E3A5A7",
+            200:"#dea2a4",
+            300:"#c99193",
         }
     }
 }
