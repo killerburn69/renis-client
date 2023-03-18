@@ -36,7 +36,7 @@ const Signin = () => {
     await sleep(2000)
     if(data.email === "baovan301@gmail.com"){
       alert(JSON.stringify(data));
-      navigate("/")
+      navigate("/home")
     }
     else{
       alert("Error")
