@@ -74,6 +74,8 @@ const customIconModify = defineStyle({
   _active: {
       bg: `none`,
   },
+  h:"fit-content",
+  
 })
 const customButtonSendMatch = defineStyle({
   transition: 'transform 0.15s ease-out, background 0.15s ease-out',

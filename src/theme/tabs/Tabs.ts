@@ -1,5 +1,5 @@
 import {tabsAnatomy} from '@chakra-ui/anatomy'
-import { createMultiStyleConfigHelpers, defineStyle } from '@chakra-ui/react'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
 
 const {definePartsStyle, defineMultiStyleConfig} = createMultiStyleConfigHelpers(tabsAnatomy.keys)
 
@@ -32,7 +32,7 @@ const baseStyle = definePartsStyle({
         py:"2",
         bg:"grey.450",
         gap:"90px",
-        pl:"150px"
+        pl:"190px"
     },
     tabpanel:{
         fontFamily:"Open Sans",

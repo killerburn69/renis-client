@@ -10,12 +10,11 @@ const Navbar = () => {
   return (
       <Container maxW="full" color="secondary_color">
         <Flex gap={'1'} align={'center'} justify={'space-around'}>
-          
           <Image src={logo} boxSize={'16'} objectFit={'contain'} marginLeft="10"></Image>
           <Box>
             <Flex justify={'center'} align={'center'} h={'full'}>
               <Center>
-                <Link p='6' _hover={{bg:"border"}} as={RouterLink} to="/home" bg={location.pathname === '/home' ? "border" : "none"}>Home</Link>
+                <Link p='6'  _hover={{bg:"border"}} as={RouterLink} to="/home" bg={location.pathname === '/home' ? "border" : "none"}>Home</Link>
               </Center>
               <Center>
                 <Link p='6' _hover={{bg:"border"}} as={RouterLink} to="/profile" bg={location.pathname === '/profile' ? "border" : "none"}>Profile</Link>

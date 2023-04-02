@@ -5,7 +5,7 @@ import DescriptionProfile from './DescriptionProfile'
 import { ArraChartProfile } from '../../../dummydata/data'
 
 const Expectation = () => {
-  const [idShowModal, setIdShowModal] = useState(ArraChartProfile[2].id)
+  const [idShowModal, setIdShowModal] = useState(ArraChartProfile[0].id)
   const opentModal = (id:string) =>{
     setIdShowModal(id)
   }
@@ -31,7 +31,7 @@ const Expectation = () => {
             </Box>
         ))}
       </Box>
-      <DescriptionProfile/>
+      <DescriptionProfile show={false} setShow={()=>console.log("hello")}/>
     </Box>
   )
 }

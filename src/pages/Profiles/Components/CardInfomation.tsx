@@ -21,11 +21,13 @@ const CardInfomation = () => {
             </Box>
             <Text fontWeight="bold" fontSize="18" color="secondary_color" mb="1">Baby Jenny</Text>
             <Text fontSize="14" color="grey.800" mb="2">jenny051266@gmail.com</Text>
-            <Flex align="center" pb="3" borderBottom="1px solid #E8E8E8">
-                <Image src={MapIcon} boxSize="4" mr="2"></Image>
-                <Text fontSize="14" color="grey.800">Humboldt Hill, US</Text>
-                <IconButton variant="iconModify" fontSize="sm"  aria-label='Edit information' icon={<EditIcon/>}/>
-            </Flex>
+            <Box pb="3" borderBottom="1px solid #E8E8E8">
+                <Flex align="center" textAlign="left" mb="2" mx="2">
+                    <Image src={MapIcon} boxSize="5" mr="2"></Image>
+                    <Text fontSize="14" color="grey.800">Humboldt Hill, US</Text>
+                    <IconButton variant="iconModify" fontSize="sm"  aria-label='Edit information' icon={<EditIcon/>}/>
+                </Flex>
+            </Box>
             <Button variant="sendMatch">Send Match</Button>
         </Flex>
     </Box>

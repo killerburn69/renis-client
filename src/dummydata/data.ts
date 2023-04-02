@@ -17,12 +17,28 @@ interface Tag {
 interface chart {
     id:string,
     chartHeading:string,
+    experienceHeading:string,
     chartTitle:string,
     backgroundBoxWrapper:object,
     backgroundFlex:object,
     backgroundText:object,
     backgroundBox:object,
     backgroundBoxBefore:object,
+}
+export interface typeExperienceTag {
+    id:string,
+    tag:string
+}
+export interface experienceBaby {
+    id:string,
+    imgBaby:string,
+    nameBaby:string,
+    link:string,
+    star:number,
+    desc:string,
+    typeExperienceTags:typeExperienceTag[],
+    dayStart:string,
+    dayEnd:string
 }
 export interface Information {
     id:number;
@@ -156,64 +172,8 @@ export const ArrayBabyImgProfile:BabyProfileImg[]=[
 export const ArraChartProfile:chart[]=[
     {
         id:"1",
-        chartHeading:"Characteristics",
-        chartTitle:"Age range: 2-8 weeks",
-        backgroundBoxWrapper:{
-            top:"-3%",
-            left:"50%",
-            transform:"translate(-50%,3%)"
-        },  
-        backgroundFlex:{
-            ...backgroundFlexProfile,
-        },
-        backgroundText:{
-            ...backgroundTextProfile,
-            top:"-6",
-            left:"-10"
-        },
-        backgroundBox:{
-            ...backgroundBoxProfile,
-            top:"-2",
-            left:"16"
-        },
-        backgroundBoxBefore:{
-            ...backgroundBoxBeforeProfile,
-            top:"3",
-            left:"-1",
-        }
-    },
-    {
-        id:"2",
-        chartHeading:"Distance",
-        chartTitle:"Age range: 2-8 weeks",
-        backgroundBoxWrapper:{
-            top:"38%",
-            right:"-3%",
-            transform:"translate(3%,-38%)"
-        },
-        backgroundFlex:{
-            ...backgroundFlexProfile,
-            
-        },
-        backgroundText:{
-            ...backgroundTextProfile,
-            top:"0",
-            left:"7"
-        },
-        backgroundBox:{
-            ...backgroundBoxProfile,
-            top:"10",
-            left:"-2"
-        },
-        backgroundBoxBefore:{
-            ...backgroundBoxBeforeProfile,
-            top:"-1",
-            left:"3",
-        }
-    },
-    {
-        id:"3",
         chartHeading:"Age",
+        experienceHeading:"Age range",
         chartTitle:"Age range: 2-8 weeks",
         backgroundBoxWrapper:{
             top:"38%",
@@ -240,8 +200,68 @@ export const ArraChartProfile:chart[]=[
         }
     },
     {
+        id:"2",
+        chartHeading:"Characteristics",
+        experienceHeading:"Characteristics",
+        chartTitle:"Age range: 2-8 weeks",
+        backgroundBoxWrapper:{
+            top:"-3%",
+            left:"50%",
+            transform:"translate(-50%,3%)"
+        },  
+        backgroundFlex:{
+            ...backgroundFlexProfile,
+        },
+        backgroundText:{
+            ...backgroundTextProfile,
+            top:"-6",
+            left:"-10"
+        },
+        backgroundBox:{
+            ...backgroundBoxProfile,
+            top:"-2",
+            left:"16"
+        },
+        backgroundBoxBefore:{
+            ...backgroundBoxBeforeProfile,
+            top:"3",
+            left:"-1",
+        }
+    },
+    {
+        id:"3",
+        chartHeading:"Type",
+        experienceHeading:"Type",
+        chartTitle:"odjasjdlajsldas",
+        backgroundBoxWrapper:{
+            bottom:"-2%",
+            right:"16%",
+            transform:"translate(-16%,2%)"
+        },
+        backgroundFlex:{
+            ...backgroundFlexProfile,
+            
+        },
+        backgroundText:{
+            ...backgroundTextProfile,
+            top:"2",
+            left:"7"
+        },
+        backgroundBox:{
+            ...backgroundBoxProfile,
+            bottom:"10",
+            left:"-2"
+        },
+        backgroundBoxBefore:{
+            ...backgroundBoxBeforeProfile,
+            bottom:"-1",
+            left:"3",
+        }
+    },
+    {
         id:"4",
         chartHeading:"Paid",
+        experienceHeading:"Paid",
         chartTitle:"Age range: 2-8 weeks",
         backgroundBoxWrapper:{
             bottom:"-2%",
@@ -270,12 +290,13 @@ export const ArraChartProfile:chart[]=[
     },
     {
         id:"5",
-        chartHeading:"Type",
-        chartTitle:"odjasjdlajsldas",
+        chartHeading:"Distance",
+        experienceHeading:"Distance",
+        chartTitle:"Age range: 2-8 weeks",
         backgroundBoxWrapper:{
-            bottom:"-2%",
-            right:"16%",
-            transform:"translate(-16%,2%)"
+            top:"38%",
+            right:"-3%",
+            transform:"translate(3%,-38%)"
         },
         backgroundFlex:{
             ...backgroundFlexProfile,
@@ -283,18 +304,85 @@ export const ArraChartProfile:chart[]=[
         },
         backgroundText:{
             ...backgroundTextProfile,
-            top:"2",
+            top:"0",
             left:"7"
         },
         backgroundBox:{
             ...backgroundBoxProfile,
-            bottom:"10",
+            top:"10",
             left:"-2"
         },
         backgroundBoxBefore:{
             ...backgroundBoxBeforeProfile,
-            bottom:"-1",
+            top:"-1",
             left:"3",
         }
+    },
+]
+
+export const dataExperienceBaby:experienceBaby[] = [
+    {
+        id:"1",
+        nameBaby:"Elsa",
+        imgBaby:img1,
+        star:3,
+        link:"/profile",
+        desc:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dignissim ligula nibh, id commodo urna sodales in. Donec et dapibus nisi, in lacinia ante. Nullam at suscipit massa, non vulputate diam.",
+        dayEnd:"May, 2023",
+        dayStart:"Feb, 2023",
+        typeExperienceTags:[
+            {
+                id:"1",
+                tag:"From 18"
+            },
+            {
+                id:"2",
+                tag:"Naughty"
+            },
+            {
+                id:"3",
+                tag:"Funny"
+            },
+            {
+                id:"4",
+                tag:"From $10/hrs"
+            },
+            {
+                id:"5",
+                tag:"5km to 10km"
+            }
+        ]
+    },
+    {
+        id:"2",
+        nameBaby:"Luma",
+        imgBaby:img2,
+        star:4,
+        link:"/profile",
+        desc:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dignissim ligula nibh, id commodo urna sodales in. Donec et dapibus nisi, in lacinia ante. Nullam at suscipit massa, non vulputate diam.",
+        dayEnd:"Apr, 2023",
+        dayStart:"Jan, 2023",
+        typeExperienceTags:[
+            {
+                id:"1",
+                tag:"From 18"
+            },
+            {
+                id:"2",
+                tag:"Naughty"
+            },
+            {
+                id:"3",
+                tag:"Funny"
+            },
+            {
+                id:"4",
+                tag:"From $15/hrs"
+            },
+            {
+                id:"5",
+                tag:"5km to 10km"
+            }
+        ]
     }
 ]

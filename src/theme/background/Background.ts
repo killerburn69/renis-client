@@ -185,3 +185,52 @@ export const backgroundModalProfile = {
     borderRadius:"full",
     cursor:"pointer"
 }
+
+export const columnExperience = {
+    content:"''",
+    position:"absolute",
+    h:"full",
+    w:"1",
+    top:"0",
+    left:"0",
+    bg:"grey.300",
+    borderRadius:"full"
+}
+export const hastagExperience = {
+    content:"''",
+    position:"absolute",
+    w:"2",
+    h:"2",
+    bg:"grey.100",
+    bottom:"-1",
+    left:"50%",
+    transform:"rotate(45deg) translateX(-50%)",
+}
+export const textHastag = {
+    shadow:"md",
+    p:"1",
+    fontSize:"12", 
+    fontStyle:"italic",
+    position:"absolute",
+    top:"-10",
+    borderRadius:"md",
+    left:"3",
+    bg:"grey.100"
+}
+export const linkBgExperience = {
+    fontSize:"13",
+    position:"relative",
+    color:"blue_sky",
+    fontWeight:"bold",
+    fontStyle:"italic",
+    _after:{
+        content:"''",
+        position:"absolute",
+        w:"full",
+        h:"1px",
+        bottom:"1",
+        left:"0",
+        bg:"blue_sky",
+        opacity:"0.8"
+    }
+}

@@ -5,9 +5,10 @@ import { Box,Image ,Text, IconButton, Flex} from '@chakra-ui/react'
 import { backgroundImageBabyProfile, textBackgroundImageBabyProfile} from '../../../theme/background/Background'
 import DescriptionProfile from './DescriptionProfile'
 
+
 const About = () => {
   const [imgShow, setImgShow] = useState(ArrayBabyImgProfile[0].img)
-  
+  const [showForm, setShowForm] = useState(false)
 
   return (
     <React.Fragment>
@@ -36,8 +37,8 @@ const About = () => {
       </Flex>
       <Box transform="translateX(-5%)">
         <Flex align="flex-start">
-          <IconButton variant="iconModify" h="6" aria-label="Edit information" icon={<EditIcon/>}/>
-          <DescriptionProfile/>
+          <IconButton onClick={()=>setShowForm(true)} variant="iconModify" h="6" aria-label="Edit information" icon={<EditIcon/>}/>
+          <DescriptionProfile show={showForm} setShow={setShowForm}/>
         </Flex>
       </Box>
     </React.Fragment>
