@@ -18,8 +18,12 @@ export const color = {
             300:"#D9D9D9",
             350:"#5f5f5f",
             400:"#D1D1D1",
+            450:"#EEEEEE",
             500:"#747474",
+            550:"#b1b1b1",
+            600:"#333333",
             800:"#848484",
+
         },
         pink:"#C95283",
         primary_color:"#E3A5A7",
@@ -37,6 +41,7 @@ export const color = {
         unrate:"#D1D1D1",
         background_one:"#E17E36",
         border:"#F2C9CD",
+        chart:"#F5E6E7",
         purpleButton:{
             500:"#8682A7",
             600:"#6B6888",

@@ -8,13 +8,13 @@ const Navbar = () => {
   console.log(location.pathname);
   
   return (
-      <Container maxW="full" color="secondary_color" borderBottom="2px solid" borderColor="grey.150">
-        <Flex gap={'2'} align={'center'} justify={'space-around'}>
-          <Image src={logo} boxSize={'16'} objectFit={'contain'}></Image>
+      <Container maxW="full" color="secondary_color">
+        <Flex gap={'1'} align={'center'} justify={'space-around'}>
+          <Image src={logo} boxSize={'16'} objectFit={'contain'} marginLeft="10"></Image>
           <Box>
             <Flex justify={'center'} align={'center'} h={'full'}>
               <Center>
-                <Link p='6' _hover={{bg:"border"}} as={RouterLink} to="/home" bg={location.pathname === '/home' ? "border" : "none"}>Home</Link>
+                <Link p='6'  _hover={{bg:"border"}} as={RouterLink} to="/home" bg={location.pathname === '/home' ? "border" : "none"}>Home</Link>
               </Center>
               <Center>
                 <Link p='6' _hover={{bg:"border"}} as={RouterLink} to="/profile" bg={location.pathname === '/profile' ? "border" : "none"}>Profile</Link>
@@ -30,7 +30,7 @@ const Navbar = () => {
               </Center>
             </Flex>
           </Box>
-          <Box>
+          <Box marginRight="10">
             <Flex gap='2'>
               <Box position="relative">
                 <IconButton aria-label='notification' icon={<BellIcon/>} sx={backgroundIconNotification}/>
@@ -38,7 +38,7 @@ const Navbar = () => {
                   <Text fontSize="10">2</Text>
                 </Flex>
               </Box>
-              <Link bg="secondary_color" px="5" py="2" variant="linkFont" as={RouterLink} to="/signup">Sign out</Link>
+              <Link bg="secondary_color" px="3" py="1" h="fit-content" m="auto 0" variant="linkFont" as={RouterLink} to="/signup">Sign out</Link>
             </Flex>
           </Box>
         </Flex>

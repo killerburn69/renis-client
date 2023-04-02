@@ -3,6 +3,7 @@ const baseStyle = defineStyle({
   borderRadius: 0,
   fontFamily: 'Open Sans',
 })
+
 const customButtonBase = defineStyle({
     fontFamily: 'Open Sans',
     bg: `purpleButton.500`,
@@ -62,12 +63,43 @@ const customButtonAccept = defineStyle({
   h:"full",
   borderRadius:"full",
 })
+const customIconModify = defineStyle({
+  fontSize:"xl",
+  p:"0",
+  color:"grey.550",
+  bg:"transparent",
+  _hover: {
+      bg: `none`,
+  },
+  _active: {
+      bg: `none`,
+  },
+  h:"fit-content",
+  
+})
+const customButtonSendMatch = defineStyle({
+  transition: 'transform 0.15s ease-out, background 0.15s ease-out',
+  py:"0",
+  color:"#ffffff",
+  fontSize:"sm",
+  mt:"4",
+  bg:"primary_color",
+  _hover: {
+    bg: `font_colot.100`,
+  },
+  _active: {
+    bg: `font_colot.200`,
+  },
+})
 export const buttonTheme = defineStyleConfig({
   baseStyle,
   variants: {
     customButtonBase: customButtonBase,
     buttonSearch:buttonSearch,
     reject:customButtonReject,
-    accept:customButtonAccept
+    accept:customButtonAccept,
+    iconModify:customIconModify,
+    sendMatch:customButtonSendMatch,
+    editCharactic:customButtonSendMatch,
   },
 })

@@ -112,11 +112,125 @@ export const backgroundAmountNotification = {
 export const backgroundOverlay = {
     justifyContent:"center",
     alignItems:"center",
-    position:"absolute",
+    position:"fixed",
     w:"full",
-    h:"full",
+    h:"100vh",
     bg:"rgba(0,0,0,0.7)",
     top:"0",
     left:"0",
     zIndex:"overlay"
+}
+export const backgroundImageBabyProfile = {
+    position:"relative",
+    w:"3xl",
+    h:"96",
+    borderRadius:"lg",
+    overflow:"hidden",
+    marginBottom:"7",
+    _before:{
+        content: "''",
+        position:"absolute",
+        w:"full",
+        bottom:"0",
+        left:"0",
+        h:"40%",
+        bg:"linear-gradient(180deg, rgba(47, 48, 49, 0) 1.48%, #000000 100%)",
+        zIndex: "docked",
+    },
+    boxShadow:"2xl",
+}
+export const textBackgroundImageBabyProfile = {
+    position:"absolute",
+    bottom:"5",
+    left:"50%",
+    transform:"translateX(-50%)",
+    fontFamily:"Kalam",
+    color:"white",
+    fontSize:"2xl",
+    zIndex:"dropdown",
+}
+export const backgroundFlexProfile={
+    alignItems:"center",
+    justifyContent:"center",
+    w:"6", 
+    h:"6",
+    cursor:"pointer"
+}
+export const backgroundTextProfile={
+    fontSize:"15",
+    fontWeight:"bold",
+    color:"secondary_color",
+    position:"absolute",
+}
+export const backgroundBoxProfile={
+    borderRadius:"xl",
+    w:"32",
+    px:"6",
+    py:"3",
+    bg:"border",
+    position:"absolute"
+}
+export const backgroundBoxBeforeProfile={
+    content:"''",
+    position:"absolute",
+    w:"3",
+    h:"3",
+    bg:"border",
+    transform: "rotate(45deg)"
+}
+export const backgroundModalProfile = {
+    w:"6",
+    h:"6",
+    border:"1px solid #E3A5A8",
+    borderRadius:"full",
+    cursor:"pointer"
+}
+
+export const columnExperience = {
+    content:"''",
+    position:"absolute",
+    h:"full",
+    w:"1",
+    top:"0",
+    left:"0",
+    bg:"grey.300",
+    borderRadius:"full"
+}
+export const hastagExperience = {
+    content:"''",
+    position:"absolute",
+    w:"2",
+    h:"2",
+    bg:"grey.100",
+    bottom:"-1",
+    left:"50%",
+    transform:"rotate(45deg) translateX(-50%)",
+}
+export const textHastag = {
+    shadow:"md",
+    p:"1",
+    fontSize:"12", 
+    fontStyle:"italic",
+    position:"absolute",
+    top:"-10",
+    borderRadius:"md",
+    left:"3",
+    bg:"grey.100"
+}
+export const linkBgExperience = {
+    fontSize:"13",
+    position:"relative",
+    color:"blue_sky",
+    fontWeight:"bold",
+    fontStyle:"italic",
+    _after:{
+        content:"''",
+        position:"absolute",
+        w:"full",
+        h:"1px",
+        bottom:"1",
+        left:"0",
+        bg:"blue_sky",
+        opacity:"0.8"
+    }
 }
