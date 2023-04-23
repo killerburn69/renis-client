@@ -21,7 +21,7 @@ export const mainBackground = {
       width: 'full',
       height: 'fullContainer',
       bg: 'secondary_color',
-      clipPath: 'polygon(0 0, 40% -3%, 72% 102%, 0 100%)',
+      clipPath: 'polygon(0% 0%, 40% 0%, 65% 100%, 0% 100%)',
     },
     "display":"flex",
     "justifyContent":"center",
@@ -32,7 +32,7 @@ export const mainBackground = {
 export const subBackground = {
     "borderRadius":"xl",
     "w":"6xl",
-    "minH":"xl",
+    "minH":"600px",
     "bg":"white",
     "position":"relative",
     "overflow":"hidden",
@@ -40,15 +40,15 @@ export const subBackground = {
     "boxShadow":"lg",
     "_before":{
         ...psedo,
-        background: ` url(${babybg}) no-repeat center center`,
-        backgroundSize: 'cover',
-        clipPath: 'polygon(41% -3%, 100% 0, 100% 100%, 72% 102%)',
+        background: ` url(${babybg}) no-repeat right`,
+        backgroundSize: '60%',
+        clipPath: 'polygon(40% 0%, 100% 0%, 100% 100%, 64.3% 100%)',
     },
     "_after":{
         ...psedo,
         backgroundColor:'secondary_color',
         opacity:'0.8',
-        clipPath:'polygon(41% -3%, 100% 0, 100% 100%, 72% 102%)',
+        clipPath:'polygon(40% 0%, 100% 0%, 100% 100%, 64.3% 100%)',
     }
 }
 

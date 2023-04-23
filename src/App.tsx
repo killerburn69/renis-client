@@ -10,11 +10,13 @@ import NavbarWrapper from './components/NavbarWrapper';
 import { Overlay } from './components/Overlay';
 import IntroducePage from './pages/IntroducePage/IntroducePage';
 import Profile from './pages/Profiles/Profile';
+import ForgetPassword from './pages/ForgetPassword/ForgetPassword';
+import ResetPassword from './pages/ForgetPassword/ResetPassword';
 function App() {
   const location = useLocation()
   return (
     <Box position="relative">
-      {location.pathname !== "/signin" && location.pathname !== "/signup" && location.pathname !== '/active' && location.pathname !== '/' && (
+      {location.pathname!== "/reset-password" && location.pathname !== "/forget-password" && location.pathname !== "/signin" && location.pathname !== "/signup" && location.pathname !== '/active' && location.pathname !== '/' && (
         <>
           <NavbarWrapper/>
           <Overlay/>
@@ -27,6 +29,8 @@ function App() {
         <Route path='/signin' element={<Signin/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/active' element={<ActiveAccount/>}/>
+        <Route path='/forget-password'element={<ForgetPassword/>}/>
+        <Route path='/reset-password'element={<ResetPassword/>}/>
       </Routes> 
     </Box>
   );

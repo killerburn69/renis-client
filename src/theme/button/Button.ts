@@ -9,7 +9,7 @@ const customButtonBase = defineStyle({
     bg: `purpleButton.500`,
     fontWeight: 'semibold',
     color: 'white',
-    borderRadius: 'md',
+    
     transition: 'transform 0.15s ease-out, background 0.15s ease-out',
     _hover: {
       bg: `purpleButton.600`,

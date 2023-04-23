@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   GridItem,
   Flex,
@@ -8,12 +8,11 @@ import {
   FormControl,
   Checkbox,
   Button,
-  FormErrorMessage,
   Link,
 } from '@chakra-ui/react'
 import {Link as RouterLink, useNavigate} from 'react-router-dom'
 import {yupResolver} from '@hookform/resolvers/yup'
-import { useForm , FieldValues} from 'react-hook-form'
+import { useForm} from 'react-hook-form'
 import logo from '../../imgs/logobaby.png'
 import Mainbackground from '../../components/Mainbackground'
 import Subbackground from '../../components/Subbackground'
@@ -21,27 +20,67 @@ import TwoColumn from '../../components/TwoColumn'
 import Inputs from '../../components/Inputs'
 import RightBackground from '../../components/RightBackground'
 import { UserSignInValidation } from '../../validations/UserSignin'
+import { LOG_IN } from '../../graphql/mutation/Login'
+import {useMutation} from '@apollo/client'
+import { useToast } from '@chakra-ui/react'
 type SigninForm = {
-  email:string,
-  password:string,
-  isKeepLogin:boolean,
+  Email:string,
+  Password:string,
 }
+interface JwtPayload{
+  Access_Token:string,
+  User:string
+}
+
 const sleep = (ms:number) => new Promise((resolve) => setTimeout(resolve, ms));
 const Signin = () => {
-  const {register, handleSubmit,formState:{errors, isSubmitting}} = useForm<FieldValues>({
+  const toast = useToast()
+  const [login, {data, error,loading}] = useMutation<
+    {login:JwtPayload},
+    {loginInput: SigninForm}
+  >(LOG_IN)
+
+  const {register, handleSubmit,formState:{errors, isSubmitting}} = useForm<SigninForm>({
+    defaultValues:{
+      Email:"",
+      Password:"",
+    },
     resolver:yupResolver(UserSignInValidation)
   })
   const navigate = useNavigate()
-  const onSubmit = async(data:FieldValues)=>{
+  const onSubmit = async(datas:SigninForm)=>{
     await sleep(2000)
-    if(data.email === "baovan301@gmail.com"){
-      alert(JSON.stringify(data));
-      navigate("/home")
+    try{
+      await login({
+        variables:{
+          loginInput:datas
+        }
+      })
     }
-    else{
-      alert("Error")
+    catch(error){
+       
     }
   };
+  useEffect(()=>{
+    if(data){
+      toast({
+        title:"Login Successfully",
+        status:"success",
+        isClosable:true,
+        position:"top-right"
+      })
+      navigate("/home")
+    }
+    if(error){
+      toast({
+        title:`${error.message}`,
+        status:"error",
+        isClosable:true,
+        position:"top-right"
+      })
+    }
+  },[error, data, toast, navigate])
+  
   return (
     <Mainbackground>
       <Subbackground>
@@ -54,32 +93,37 @@ const Signin = () => {
               mb={'3'}
               objectFit={'contain'}
             ></Image>
-            <Text textStyle="h1" mb={3}>
+            <Text textStyle="h1" fontSize="4xl" fontWeight="extrabold" w="52" mb={3} mx="auto">
               Welcome back!
             </Text>
-            <Box maxW={'lg'} mx={'auto'}>
+            <Box maxW={'md'} mx={'auto'}>
               <FormControl as="form" onSubmit={handleSubmit(onSubmit)}>
                 <Inputs
                   id="email"
                   label="Email"
                   placeholder="Your email"
                   type="email"
-                  register={register}
+                  register={{...register('Email')}}
+                  error={errors.Email}
                 />
+                {/* <p>{errors.email?.message}</p> */}
                 <Inputs
                   id="password"
                   label="Password"
                   placeholder="Your password"
                   type="password"
-                  register={register}
+                  register={{...register('Password')}}
+                  error={errors.Password}
                 />
+                {/* <p>{errors.password?.message}</p> */}
                 <Flex justify={'space-between'} mb={'8'}>
-                  <Checkbox colorScheme={'purpleButton'} {...register('isKeepLogin')}>Keep login</Checkbox>
-                  <Link variant="linkFont" color="black" as={Link}>Forget your password?</Link>
+                  <Checkbox colorScheme={'purpleButton'}>Keep login</Checkbox>
+                  <Link variant="linkFont" color="black" as={RouterLink} to="/forget-password">Forget your password?</Link>
                 </Flex>
                 <Button w="full" size="md" variant="customButtonBase" type='submit' isLoading={isSubmitting}>
                   Login
                 </Button>
+                {/* {data && <p>{JSON.stringify(data.login.Access_Token)}</p>} */}
               </FormControl>
             </Box>
           </GridItem>

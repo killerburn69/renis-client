@@ -5,11 +5,14 @@ import MapIcon from '../../../imgs/locationsvg.svg'
 import { EditIcon } from '@chakra-ui/icons'
 import Star from '../../../components/Star'
 import EditInformationNani from './EditInformationNani'
-const CardInformationNani = () => {
+interface Fixed{
+    fixed:boolean
+}
+const CardInformationNani = (props:Fixed) => {
   return (
-    <Box>
-        <Box px="8" py="6" w="fit-content" ml="auto"  bg="white" transform="translateY(-30%)" borderRadius="2xl" boxShadow="xl">
-            <Flex flexDirection="column" align="center">
+    <Box position={props.fixed ? "fixed" :"relative"} ml={props.fixed ?"36":"0"}  top={props.fixed ? "52":"0"} mt={props.fixed ? "4":"0"}>
+        <Box  px="8" py="6" w="fit-content" ml="auto"  bg="white" transform="translateY(-30%)" borderRadius="2xl" boxShadow="xl">
+            <Flex flexDirection="column" align="center"> 
                 <Star star={4}/>
                 <Box w="36" h="36" borderRadius="full" overflow="hidden" position="relative" mb="5" mt="2">
                     <Image src={BabyAvatar} w="full" h="full"  objectFit="cover"></Image>
@@ -42,7 +45,7 @@ const CardInformationNani = () => {
                 <Button variant="sendMatch">Send Match</Button>
             </Flex>
         </Box>
-        <EditInformationNani/>
+        {/* <EditInformationNani/> */}
     </Box>
   )
 }
