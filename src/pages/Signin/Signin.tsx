@@ -23,19 +23,12 @@ import { UserSignInValidation } from '../../validations/UserSignin'
 import { LOG_IN } from '../../graphql/mutation/Login'
 import {useMutation} from '@apollo/client'
 import { useToast } from '@chakra-ui/react'
-type SigninForm = {
-  Email:string,
-  Password:string,
-}
-interface JwtPayload{
-  Access_Token:string,
-  User:string
-}
-
+import { JwtPayload } from '../../models/interfaces'
+import { SigninForm } from '../../models/types'
 const sleep = (ms:number) => new Promise((resolve) => setTimeout(resolve, ms));
 const Signin = () => {
   const toast = useToast()
-  const [login, {data, error,loading}] = useMutation<
+  const [login, {data, error}] = useMutation<
     {login:JwtPayload},
     {loginInput: SigninForm}
   >(LOG_IN)
@@ -106,7 +99,6 @@ const Signin = () => {
                   register={{...register('Email')}}
                   error={errors.Email}
                 />
-                {/* <p>{errors.email?.message}</p> */}
                 <Inputs
                   id="password"
                   label="Password"
@@ -115,7 +107,6 @@ const Signin = () => {
                   register={{...register('Password')}}
                   error={errors.Password}
                 />
-                {/* <p>{errors.password?.message}</p> */}
                 <Flex justify={'space-between'} mb={'8'}>
                   <Checkbox colorScheme={'purpleButton'}>Keep login</Checkbox>
                   <Link variant="linkFont" color="black" as={RouterLink} to="/forget-password">Forget your password?</Link>
@@ -123,7 +114,6 @@ const Signin = () => {
                 <Button w="full" size="md" variant="customButtonBase" type='submit' isLoading={isSubmitting}>
                   Login
                 </Button>
-                {/* {data && <p>{JSON.stringify(data.login.Access_Token)}</p>} */}
               </FormControl>
             </Box>
           </GridItem>

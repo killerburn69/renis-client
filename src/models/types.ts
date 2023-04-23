@@ -10,4 +10,13 @@ export type User={
     Role:Role,
     isBlocked:boolean
 }
-
+export type SigninForm = {
+    Email:string,
+    Password:string,
+}
+export type SignUpForm = {
+    Email:string,
+    Password:string,
+    Confirm_Password:string,
+    Role:Role
+  }

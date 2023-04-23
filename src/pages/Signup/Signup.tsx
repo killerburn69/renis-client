@@ -23,20 +23,13 @@ import { Role } from '../../models/enum'
 import { useMutation } from '@apollo/client'
 import { SIGN_UP } from '../../graphql/mutation/Signup'
 import { useToast } from '@chakra-ui/react'
-type SignUpForm = {
-  Email:string,
-  Password:string,
-  Confirm_Password:string,
-  Role:Role
-}
-interface JwtPayload{
-  Access_Token:string,
-  User:string
-}
+import { JwtPayload } from '../../models/interfaces'
+import { SignUpForm } from '../../models/types'
+
 const sleep = (ms:number) => new Promise((resolve) => setTimeout(resolve, ms));
 const Signup = () => {
   const toast = useToast()
-  const [signup, {data,error,loading}] = useMutation<
+  const [signup, {data,error}] = useMutation<
     {signup:JwtPayload},
     {signupInput:SignUpForm}
   >(SIGN_UP)
