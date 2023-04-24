@@ -1,7 +1,6 @@
 export const sizes = {
-    sizes: {
-      fullContainer:"100vh",
-      half:'50%',
-    },
-  }
-  
+  sizes: {
+    fullContainer: "100vh",
+    half: "50%",
+  },
+};

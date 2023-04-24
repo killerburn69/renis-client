@@ -6,51 +6,49 @@ import {
   Text,
   Box,
   FormControl,
-  Checkbox,
   Button,
-  Link,
 } from "@chakra-ui/react";
+import logo from "../../imgs/logobaby.png";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import logo from "../../imgs/logobaby.png";
 import Mainbackground from "../../components/Mainbackground";
 import Subbackground from "../../components/Subbackground";
 import TwoColumn from "../../components/TwoColumn";
 import Inputs from "../../components/Inputs";
 import RightBackground from "../../components/RightBackground";
-import { UserSignInValidation } from "../../validations/UserSignin";
-import { LOG_IN_MUTATION } from "../../graphql/mutation/auth.gql";
-import { useMutation } from "@apollo/client";
+import { UserActiveAccount } from "../../validations/ActiveAccount";
 import { useToast } from "@chakra-ui/react";
-import { JwtPayload } from "../../models/interfaces";
-import { LoginInput } from "../../models/types";
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-const Signin = () => {
-  const toast = useToast();
-  const [login, { data, error }] = useMutation<
-    { login: JwtPayload },
-    { loginInput: LoginInput }
-  >(LOG_IN_MUTATION);
+import { useMutation } from "@apollo/client";
+import { ACTIVE_ACCOUNT_MUTATION } from "../../graphql/mutation/auth.gql";
+import { ActivateAccountInput } from "../../models/types";
+import { ActivateResponse } from "../../models/interfaces";
 
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+const ActiveAccount = () => {
+  const toast = useToast();
+  const [activateAccount, { data, error, loading }] = useMutation<
+    { activateAccount: ActivateResponse },
+    { activateInput: ActivateAccountInput }
+  >(ACTIVE_ACCOUNT_MUTATION);
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<LoginInput>({
+  } = useForm<ActivateAccountInput>({
     defaultValues: {
       Email: "",
-      Password: "",
+      Otp: "",
     },
-    resolver: yupResolver(UserSignInValidation),
+    resolver: yupResolver(UserActiveAccount),
   });
   const navigate = useNavigate();
-  const onSubmit = async (datas: LoginInput) => {
+  const onSubmit = async (datas: ActivateAccountInput) => {
     await sleep(2000);
     try {
-      await login({
+      await activateAccount({
         variables: {
-          loginInput: datas,
+          activateInput: datas,
         },
       });
     } catch (e: unknown) {
@@ -60,12 +58,12 @@ const Signin = () => {
   useEffect(() => {
     if (data) {
       toast({
-        title: "Login Successfully",
+        title: "Active Account Succesfully",
         status: "success",
         isClosable: true,
         position: "top-right",
       });
-      navigate("/home");
+      navigate("/signin");
     }
     if (error) {
       toast({
@@ -76,7 +74,6 @@ const Signin = () => {
       });
     }
   }, [error, data, toast, navigate]);
-
   return (
     <Mainbackground>
       <Subbackground>
@@ -88,18 +85,11 @@ const Signin = () => {
               mx={"auto"}
               mb={"3"}
               objectFit={"contain"}
-            ></Image>
-            <Text
-              textStyle="h1"
-              fontSize="4xl"
-              fontWeight="extrabold"
-              w="52"
-              mb={3}
-              mx="auto"
-            >
-              Welcome back!
+            />
+            <Text textStyle="h1" mb={3}>
+              Active Account!
             </Text>
-            <Box maxW={"md"} mx={"auto"}>
+            <Box maxW={"lg"} mx={"auto"}>
               <FormControl as="form" onSubmit={handleSubmit(onSubmit)}>
                 <Inputs
                   id="email"
@@ -110,23 +100,15 @@ const Signin = () => {
                   error={errors.Email}
                 />
                 <Inputs
-                  id="password"
-                  label="Password"
-                  placeholder="Your password"
-                  type="password"
-                  register={{ ...register("Password") }}
-                  error={errors.Password}
+                  id="code"
+                  label="Activation code"
+                  placeholder="Activation code"
+                  type="text"
+                  register={{ ...register("Otp") }}
+                  error={errors.Otp}
                 />
-                <Flex justify={"space-between"} mb={"8"}>
-                  <Checkbox colorScheme={"purpleButton"}>Keep login</Checkbox>
-                  <Link
-                    variant="linkFont"
-                    color="black"
-                    as={RouterLink}
-                    to="/forget-password"
-                  >
-                    Forget your password?
-                  </Link>
+                <Flex justify={"flex-end"} mb={"8"}>
+                  <Text>Forget your password?</Text>
                 </Flex>
                 <Button
                   w="full"
@@ -135,7 +117,7 @@ const Signin = () => {
                   type="submit"
                   isLoading={isSubmitting}
                 >
-                  Login
+                  Active OTP
                 </Button>
               </FormControl>
             </Box>
@@ -149,4 +131,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default ActiveAccount;

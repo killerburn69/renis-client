@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState } from "react";
 import {
   Box,
   Image,
@@ -9,34 +9,36 @@ import {
   TabPanel,
   Grid,
   GridItem,
-} from '@chakra-ui/react'
-import ProfileBg from '../../imgs/bgprofile.png'
-import About from './Components/About'
+} from "@chakra-ui/react";
+import ProfileBg from "../../imgs/bgprofile.png";
+import About from "./Components/About";
 
-import Expectation from './Components/Expectation'
-import Experiences from './Components/Experiences'
-import CardInformationNani from './Components/CardInformationNani'
+import Expectation from "./Components/Expectation";
+import Experiences from "./Components/Experiences";
+import CardInformationNani from "./Components/CardInformationNani";
 
-interface Value{
-  descValue:string,
-  setDescValue: (value:string) => void
+interface Value {
+  descValue: string;
+  setDescValue: (value: string) => void;
 }
-export const Context = createContext<Value | undefined>(undefined)
+export const Context = createContext<Value | undefined>(undefined);
 const Profile = () => {
-  const [fixed, setFixed] = useState(false)
-  
-  const [descValue, setDescValue] = useState<string>("Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam temporibus deleniti debitis nobis. Fugiat dolorem, deserunt consectetur sint non perspiciatis. Animi placeat voluptatem aliquid possimus dignissimos delectus aspernatur, assumenda omnis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ex quam similique reiciendis qui dolor facilis illo animi? Ullam, nam officiis cumque deserunt dolor nihil hbaksbdisldialjdasljdslalsjfjlsdnfljkaslfjkbasdlkjfbakjebflkjsbdlfkjbasdlfjbaiuehfiuwefljbslkjfbsdlkjbfaiebfibaslkjdfblksjbfkjsbdlfkjbasdlfkjasbfiuweiufhaibdjkbdjlkbjxkbvljbiofbwoiebfiuweifubsubfsdjblkjsdbabweoiufbilebfljsdbjlkbasdjfhbiuwfhuawhbjlsdbjlbsduisdbdifuarchitecto dolorem distinctio nemo autem.Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam temporibus deleniti debitis nobis. Fugiat dolorem, deserunt consectetur sint non perspiciatis. Animi placeat voluptatem aliquid possimus dignissimos delectus aspernatur, assumenda omnis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ex quam similique reiciendis qui dolor facilis illo animi? Ullam, nam officiis cumque deserunt dolor nihil hbaksbdisldialjdasljdslalsjfjlsdnfljkaslfjkbasdlkjfbakjebflkjsbdlfkjbasdlfjbaiuehfiuwefljbslkjfbsdlkjbfaiebfibaslkjdfblksjbfkjsbdlfkjbasdlfkjasbfiuweiufhaibdjkbdjlkbjxkbvljbiofbwoiebfiuweifubsubfsdjblkjsdbabweoiufbilebfljsdbjlkbasdjfhbiuwfhuawhbjlsdbjlbsduisdbdifuarchitecto dolorem distinctio nemo autem")
-  const setFixedCard = ()=>{
-    if(window.scrollY>=150){
-      setFixed(true)
-    }else{
-      setFixed(false)
+  const [fixed, setFixed] = useState(false);
+
+  const [descValue, setDescValue] = useState<string>(
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam temporibus deleniti debitis nobis. Fugiat dolorem, deserunt consectetur sint non perspiciatis. Animi placeat voluptatem aliquid possimus dignissimos delectus aspernatur, assumenda omnis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ex quam similique reiciendis qui dolor facilis illo animi? Ullam, nam officiis cumque deserunt dolor nihil hbaksbdisldialjdasljdslalsjfjlsdnfljkaslfjkbasdlkjfbakjebflkjsbdlfkjbasdlfjbaiuehfiuwefljbslkjfbsdlkjbfaiebfibaslkjdfblksjbfkjsbdlfkjbasdlfkjasbfiuweiufhaibdjkbdjlkbjxkbvljbiofbwoiebfiuweifubsubfsdjblkjsdbabweoiufbilebfljsdbjlkbasdjfhbiuwfhuawhbjlsdbjlbsduisdbdifuarchitecto dolorem distinctio nemo autem.Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam temporibus deleniti debitis nobis. Fugiat dolorem, deserunt consectetur sint non perspiciatis. Animi placeat voluptatem aliquid possimus dignissimos delectus aspernatur, assumenda omnis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ex quam similique reiciendis qui dolor facilis illo animi? Ullam, nam officiis cumque deserunt dolor nihil hbaksbdisldialjdasljdslalsjfjlsdnfljkaslfjkbasdlkjfbakjebflkjsbdlfkjbasdlfjbaiuehfiuwefljbslkjfbsdlkjbfaiebfibaslkjdfblksjbfkjsbdlfkjbasdlfkjasbfiuweiufhaibdjkbdjlkbjxkbvljbiofbwoiebfiuweifubsubfsdjblkjsdbabweoiufbilebfljsdbjlkbasdjfhbiuwfhuawhbjlsdbjlbsduisdbdifuarchitecto dolorem distinctio nemo autem",
+  );
+  const setFixedCard = () => {
+    if (window.scrollY >= 150) {
+      setFixed(true);
+    } else {
+      setFixed(false);
     }
-  }
-  window.addEventListener("scroll",setFixedCard)
-  console.log(window.scrollY)
+  };
+  window.addEventListener("scroll", setFixedCard);
+  console.log(window.scrollY);
   return (
-    <Context.Provider value={{descValue, setDescValue}}>
+    <Context.Provider value={{ descValue, setDescValue }}>
       <Box>
         <Image src={ProfileBg} />
         <Tabs align="center" variant="enclosed">
@@ -47,18 +49,18 @@ const Profile = () => {
           </TabList>
           <Grid templateColumns="repeat(7,1fr)">
             <GridItem position="relative" colSpan={2} textAlign="right">
-              <CardInformationNani fixed={fixed}/>
+              <CardInformationNani fixed={fixed} />
             </GridItem>
             <GridItem colSpan={4}>
               <TabPanels textAlign="left">
                 <TabPanel>
-                  <About/>
+                  <About />
                 </TabPanel>
                 <TabPanel>
-                  <Expectation/>
+                  <Expectation />
                 </TabPanel>
                 <TabPanel>
-                  <Experiences/>
+                  <Experiences />
                 </TabPanel>
               </TabPanels>
             </GridItem>
@@ -66,7 +68,7 @@ const Profile = () => {
         </Tabs>
       </Box>
     </Context.Provider>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
