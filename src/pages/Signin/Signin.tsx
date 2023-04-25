@@ -25,10 +25,11 @@ import { useMutation } from "@apollo/client";
 import { useToast } from "@chakra-ui/react";
 import { JwtPayload } from "../../models/interfaces";
 import { LoginInput } from "../../models/types";
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+// const sleep = (ms: number) =>
+//   new Promise((resolve) => setTimeout(resolve, ms));
 const Signin = () => {
   const toast = useToast();
-  const [login, { data, error }] = useMutation<
+  const [login, { data, error, loading }] = useMutation<
     { login: JwtPayload },
     { loginInput: LoginInput }
   >(LOG_IN_MUTATION);
@@ -46,7 +47,7 @@ const Signin = () => {
   });
   const navigate = useNavigate();
   const onSubmit = async (datas: LoginInput) => {
-    await sleep(2000);
+    // await sleep(2000);
     try {
       await login({
         variables: {
@@ -100,7 +101,10 @@ const Signin = () => {
               Welcome back!
             </Text>
             <Box maxW={"md"} mx={"auto"}>
-              <FormControl as="form" onSubmit={handleSubmit(onSubmit)}>
+              <FormControl
+                as="form"
+                onSubmit={handleSubmit(onSubmit)}
+              >
                 <Inputs
                   id="email"
                   label="Email"
@@ -118,7 +122,9 @@ const Signin = () => {
                   error={errors.Password}
                 />
                 <Flex justify={"space-between"} mb={"8"}>
-                  <Checkbox colorScheme={"purpleButton"}>Keep login</Checkbox>
+                  <Checkbox colorScheme={"purpleButton"}>
+                    Keep login
+                  </Checkbox>
                   <Link
                     variant="linkFont"
                     color="black"
@@ -133,7 +139,7 @@ const Signin = () => {
                   size="md"
                   variant="customButtonBase"
                   type="submit"
-                  isLoading={isSubmitting}
+                  isLoading={loading}
                 >
                   Login
                 </Button>

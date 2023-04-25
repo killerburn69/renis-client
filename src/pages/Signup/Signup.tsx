@@ -26,10 +26,10 @@ import { JwtPayload } from "../../models/interfaces";
 import { SignupInput } from "../../models/types";
 import { useMutation } from "@apollo/client";
 
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+// const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 const Signup = () => {
   const toast = useToast();
-  const [signup, { data, error }] = useMutation<
+  const [signup, { data, error, loading }] = useMutation<
     { signup: JwtPayload },
     { signupInput: SignupInput }
   >(SIGN_UP_MUTATION);
@@ -48,7 +48,7 @@ const Signup = () => {
   });
   const navigate = useNavigate();
   const onSubmit = async (datas: SignupInput) => {
-    await sleep(2000);
+    // await sleep(2000);
     if (datas.Role) {
       datas.Role = Role.NANY;
     } else {
@@ -100,7 +100,10 @@ const Signup = () => {
               Register Account!
             </Text>
             <Box maxW={"lg"} mx={"auto"}>
-              <FormControl as="form" onSubmit={handleSubmit(onSubmit)}>
+              <FormControl
+                as="form"
+                onSubmit={handleSubmit(onSubmit)}
+              >
                 <Inputs
                   id="email"
                   label="Email"
@@ -126,7 +129,10 @@ const Signup = () => {
                   error={errors.Confirm_Password}
                 />
                 <Flex mb={"8"}>
-                  <Checkbox colorScheme={"purpleButton"} {...register("Role")}>
+                  <Checkbox
+                    colorScheme={"purpleButton"}
+                    {...register("Role")}
+                  >
                     Are you a baby sister ?
                   </Checkbox>
                 </Flex>
@@ -135,7 +141,7 @@ const Signup = () => {
                   size="md"
                   variant="customButtonBase"
                   type="submit"
-                  isLoading={isSubmitting}
+                  isLoading={loading}
                 >
                   Register
                 </Button>

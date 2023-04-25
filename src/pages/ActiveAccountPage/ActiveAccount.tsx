@@ -24,7 +24,8 @@ import { ACTIVE_ACCOUNT_MUTATION } from "../../graphql/mutation/auth.gql";
 import { ActivateAccountInput } from "../../models/types";
 import { ActivateResponse } from "../../models/interfaces";
 
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+// const sleep = (ms: number) =>
+//   new Promise((resolve) => setTimeout(resolve, ms));
 const ActiveAccount = () => {
   const toast = useToast();
   const [activateAccount, { data, error, loading }] = useMutation<
@@ -44,7 +45,7 @@ const ActiveAccount = () => {
   });
   const navigate = useNavigate();
   const onSubmit = async (datas: ActivateAccountInput) => {
-    await sleep(2000);
+    // await sleep(2000);
     try {
       await activateAccount({
         variables: {
@@ -90,7 +91,10 @@ const ActiveAccount = () => {
               Active Account!
             </Text>
             <Box maxW={"lg"} mx={"auto"}>
-              <FormControl as="form" onSubmit={handleSubmit(onSubmit)}>
+              <FormControl
+                as="form"
+                onSubmit={handleSubmit(onSubmit)}
+              >
                 <Inputs
                   id="email"
                   label="Email"
@@ -115,7 +119,7 @@ const ActiveAccount = () => {
                   size="md"
                   variant="customButtonBase"
                   type="submit"
-                  isLoading={isSubmitting}
+                  isLoading={loading}
                 >
                   Active OTP
                 </Button>

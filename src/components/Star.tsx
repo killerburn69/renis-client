@@ -4,18 +4,19 @@ interface StarProps {
   star: number;
 }
 const Star = ({ star }: StarProps) => {
+  const starArr = [0, 0, 0, 0, 0];
   return (
     <Flex>
-      {Array(star)
-        .fill(null)
-        .map((item, index) => (
-          <StarIcon boxSize="3" mr="1" color="rate" key={index} />
-        ))}
-      {Array(5 - star)
-        .fill(null)
-        .map((item, index) => (
-          <StarIcon boxSize="3" mr="1" color="grey.400" key={index} />
-        ))}
+      {starArr.map((item, index) => {
+        return (
+          <StarIcon
+            boxSize="3"
+            mr="1"
+            color={index < star ? "rate" : "grey.400"}
+            key={index}
+          />
+        );
+      })}
     </Flex>
   );
 };
