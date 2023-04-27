@@ -4,6 +4,7 @@ import { EditIcon } from "@chakra-ui/icons";
 import { Box, Image, Text, IconButton, Flex } from "@chakra-ui/react";
 import {
   backgroundImageBabyProfile,
+  bgAboutProfile,
   textBackgroundImageBabyProfile,
 } from "../../../theme/background/Background";
 import DescriptionProfile from "./DescriptionProfile";
@@ -16,7 +17,9 @@ const About = () => {
     <React.Fragment>
       <Box sx={backgroundImageBabyProfile}>
         <Image src={imgShow} w="full" objectFit="contain" />
-        <Text sx={textBackgroundImageBabyProfile}>Some baby's images</Text>
+        <Text sx={textBackgroundImageBabyProfile}>
+          Some baby's images
+        </Text>
         <IconButton
           position="absolute"
           top="1"
@@ -31,16 +34,17 @@ const About = () => {
           <Box
             key={item.id}
             cursor="pointer"
-            border={imgShow === item.img ? "2px solid #8682A7" : "none"}
+            border={
+              imgShow === item.img ? "2px solid #8682A7" : "none"
+            }
           >
             <Image
               src={item.img}
               onClick={() => setImgShow(item.img)}
-              w="24"
-              h="24"
-              objectFit="cover"
-              transform={imgShow === item.img ? "translate(-10px,-10px)" : ""}
-              boxShadow="xl"
+              sx={bgAboutProfile}
+              transform={
+                imgShow === item.img ? "translate(-10px,-10px)" : ""
+              }
             ></Image>
           </Box>
         ))}

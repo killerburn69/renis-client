@@ -241,3 +241,46 @@ export const bgBannerItems = {
   borderRadius: "full",
   w: "56",
 };
+export const bgButtonIntroducePage = {
+  display: "block",
+  px: "6",
+  fontSize: "18",
+  fontWeight: "bold",
+  py: "2",
+  opacity: "0.5",
+  bg: "purpleButton.700",
+};
+export const bgAboutProfile = {
+  w: "24",
+  h: "24",
+  objectFit: "cover",
+  boxShadow: "xl",
+};
+export const bgCardInformationProfile = {
+  px: "8",
+  py: "6",
+  w: "fit-content",
+  ml: "auto",
+  bg: "white",
+  transform: "translateY(-30%)",
+  borderRadius: "2xl",
+  boxShadow: "xl",
+};
+export const bgEditInformationProfile = {
+  justify: "center",
+  align: "center",
+  w: "full",
+  zIndex: "overlay",
+  h: "100vh",
+  position: "fixed",
+  top: "0",
+  left: "0",
+  bg: "red",
+};
+export const bgTypeExperienceProfile = {
+  textAlign: "center",
+  fontSize: "13",
+  color: "grey.800",
+  cursor: "pointer",
+  _hover: { color: "primary_color" },
+};

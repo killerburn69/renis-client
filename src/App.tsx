@@ -4,14 +4,14 @@ import { Box } from "@chakra-ui/react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Signup from "./pages/Signup/Signup";
 import Signin from "./pages/Signin/Signin";
-import ActiveAccount from "./pages/ActiveAccountPage/ActiveAccount";
+import ActiveAccount from "./pages/ActiveAccountPage/ActiveAccountPage";
 import Home from "./pages/Home/Home";
 import NavbarWrapper from "./components/NavbarWrapper";
 import { Overlay } from "./components/Overlay";
 import IntroducePage from "./pages/IntroducePage/IntroducePage";
 import Profile from "./pages/Profiles/Profile";
 import ForgetPassword from "./pages/ForgetPassword/ForgetPassword";
-import ResetPassword from "./pages/ForgetPassword/ResetPassword";
+import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import { pathData } from "./models/variables";
 function App() {
   const location = useLocation();

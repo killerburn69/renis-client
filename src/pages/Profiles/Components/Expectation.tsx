@@ -5,7 +5,9 @@ import DescriptionProfile from "./DescriptionProfile";
 import { ArraChartProfile } from "../../../dummydata/data";
 
 const Expectation = () => {
-  const [idShowModal, setIdShowModal] = useState(ArraChartProfile[0].id);
+  const [idShowModal, setIdShowModal] = useState(
+    ArraChartProfile[0].id,
+  );
   const opentModal = (id: string) => {
     setIdShowModal(id);
   };
@@ -29,10 +31,16 @@ const Expectation = () => {
           </Flex>
         </Box>
         {ArraChartProfile.map((item, index) => (
-          <Box position="absolute" sx={item.backgroundBoxWrapper} key={item.id}>
+          <Box
+            position="absolute"
+            sx={item.backgroundBoxWrapper}
+            key={item.id}
+          >
             <Flex
               sx={item.backgroundFlex}
-              border={idShowModal === item.id ? "1px solid #E3A5A8" : ""}
+              border={
+                idShowModal === item.id ? "1px solid #E3A5A8" : ""
+              }
               borderRadius={idShowModal === item.id ? "full" : ""}
             >
               <Box
@@ -45,14 +53,20 @@ const Expectation = () => {
             </Flex>
             <Text sx={item.backgroundText}>{item.chartHeading}</Text>
             {idShowModal === item.id && (
-              <Box sx={item.backgroundBox} _before={item.backgroundBoxBefore}>
+              <Box
+                sx={item.backgroundBox}
+                _before={item.backgroundBoxBefore}
+              >
                 {item.chartTitle}
               </Box>
             )}
           </Box>
         ))}
       </Box>
-      <DescriptionProfile show={false} setShow={() => console.log("hello")} />
+      <DescriptionProfile
+        show={false}
+        setShow={() => console.log("hello")}
+      />
     </Box>
   );
 };

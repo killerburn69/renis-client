@@ -1,10 +1,14 @@
 import { Box, Grid, GridItem, Text } from "@chakra-ui/react";
 import {
+  bgTypeExperienceProfile,
   columnExperience,
   hastagExperience,
   textHastag,
 } from "../../../theme/background/Background";
-import { ArraChartProfile, typeExperienceTag } from "../../../dummydata/data";
+import {
+  ArraChartProfile,
+  typeExperienceTag,
+} from "../../../dummydata/data";
 import React, { useState } from "react";
 
 interface TagProps {
@@ -31,11 +35,7 @@ const TypeExperience = ({ dataTag }: TagProps) => {
               <Text
                 onMouseEnter={() => openTag(item.id)}
                 onMouseLeave={() => setTrueTag(false)}
-                textAlign="center"
-                fontSize="13"
-                color="grey.800"
-                cursor="pointer"
-                _hover={{ color: "primary_color" }}
+                sx={bgTypeExperienceProfile}
               >
                 {item.experienceHeading}
               </Text>

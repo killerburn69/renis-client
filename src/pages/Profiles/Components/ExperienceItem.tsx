@@ -1,4 +1,11 @@
-import { Flex, Grid, GridItem, Image, Text, Link } from "@chakra-ui/react";
+import {
+  Flex,
+  Grid,
+  GridItem,
+  Image,
+  Text,
+  Link,
+} from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import React, { PropsWithChildren } from "react";
 import Star from "../../../components/Star";
@@ -23,7 +30,11 @@ const ExperienceItem = ({ data }: ExperiencePorps) => {
       <GridItem colSpan={6} px="4" py="3">
         <Flex justify="space-between" align="center">
           <Flex align="center" gap="2">
-            <Text fontSize="18" fontWeight="bold" color="font_color.100">
+            <Text
+              fontSize="18"
+              fontWeight="bold"
+              color="font_color.100"
+            >
               {data.nameBaby}
             </Text>
             <Star star={data.star} />

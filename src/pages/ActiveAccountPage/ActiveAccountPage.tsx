@@ -17,7 +17,7 @@ import Subbackground from "../../components/Subbackground";
 import TwoColumn from "../../components/TwoColumn";
 import Inputs from "../../components/Inputs";
 import RightBackground from "../../components/RightBackground";
-import { UserActiveAccount } from "../../validations/ActiveAccount";
+import { UserActiveAccount } from "../../validations/ActiveUserAccount";
 import { useToast } from "@chakra-ui/react";
 import { useMutation } from "@apollo/client";
 import { ACTIVE_ACCOUNT_MUTATION } from "../../graphql/mutation/auth.gql";
@@ -52,8 +52,8 @@ const ActiveAccount = () => {
           activateInput: datas,
         },
       });
-    } catch (e: unknown) {
-      console.log(e);
+    } catch (e: any) {
+      Error(e);
     }
   };
   useEffect(() => {

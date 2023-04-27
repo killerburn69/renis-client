@@ -1,10 +1,18 @@
 import React from "react";
-import { Box, Button, Flex, IconButton, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  IconButton,
+  Image,
+  Text,
+} from "@chakra-ui/react";
 import BabyAvatar from "../../../imgs/babybg.jpeg";
 import MapIcon from "../../../imgs/locationsvg.svg";
 import { EditIcon } from "@chakra-ui/icons";
 import Star from "../../../components/Star";
 import EditInformationNani from "./EditInformationNani";
+import { bgCardInformationProfile } from "../../../theme/background/Background";
 interface Fixed {
   fixed: boolean;
 }
@@ -16,16 +24,7 @@ const CardInformationNani = (props: Fixed) => {
       top={props.fixed ? "52" : "0"}
       mt={props.fixed ? "4" : "0"}
     >
-      <Box
-        px="8"
-        py="6"
-        w="fit-content"
-        ml="auto"
-        bg="white"
-        transform="translateY(-30%)"
-        borderRadius="2xl"
-        boxShadow="xl"
-      >
+      <Box sx={bgCardInformationProfile}>
         <Flex flexDirection="column" align="center">
           <Star star={4} />
           <Box
@@ -37,7 +36,12 @@ const CardInformationNani = (props: Fixed) => {
             mb="5"
             mt="2"
           >
-            <Image src={BabyAvatar} w="full" h="full" objectFit="cover"></Image>
+            <Image
+              src={BabyAvatar}
+              w="full"
+              h="full"
+              objectFit="cover"
+            ></Image>
             <IconButton
               position="absolute"
               bottom="2"
@@ -47,13 +51,23 @@ const CardInformationNani = (props: Fixed) => {
               icon={<EditIcon />}
             />
           </Box>
-          <Text fontWeight="bold" fontSize="18" color="secondary_color" mb="1">
+          <Text
+            fontWeight="bold"
+            fontSize="18"
+            color="secondary_color"
+            mb="1"
+          >
             Deacon Hail
           </Text>
           <Text fontSize="14" color="grey.800" mb="2">
             deacon@gmail.com
           </Text>
-          <Box pb="2" borderBottom="1px solid #E8E8E8" maxW="52" m="auto">
+          <Box
+            pb="2"
+            borderBottom="1px solid #E8E8E8"
+            maxW="52"
+            m="auto"
+          >
             <Flex align="center" textAlign="left" mb="2" mx="2">
               <Image src={MapIcon} boxSize="5" mr="2"></Image>
               <Text fontSize="14" color="grey.800">

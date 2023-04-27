@@ -16,6 +16,7 @@ import About from "./Components/About";
 import Expectation from "./Components/Expectation";
 import Experiences from "./Components/Experiences";
 import CardInformationNani from "./Components/CardInformationNani";
+import { moreAboutMe } from "../../dummydata/data";
 
 interface Value {
   descValue: string;
@@ -25,9 +26,7 @@ export const Context = createContext<Value | undefined>(undefined);
 const Profile = () => {
   const [fixed, setFixed] = useState(false);
 
-  const [descValue, setDescValue] = useState<string>(
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam temporibus deleniti debitis nobis. Fugiat dolorem, deserunt consectetur sint non perspiciatis. Animi placeat voluptatem aliquid possimus dignissimos delectus aspernatur, assumenda omnis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ex quam similique reiciendis qui dolor facilis illo animi? Ullam, nam officiis cumque deserunt dolor nihil hbaksbdisldialjdasljdslalsjfjlsdnfljkaslfjkbasdlkjfbakjebflkjsbdlfkjbasdlfjbaiuehfiuwefljbslkjfbsdlkjbfaiebfibaslkjdfblksjbfkjsbdlfkjbasdlfkjasbfiuweiufhaibdjkbdjlkbjxkbvljbiofbwoiebfiuweifubsubfsdjblkjsdbabweoiufbilebfljsdbjlkbasdjfhbiuwfhuawhbjlsdbjlbsduisdbdifuarchitecto dolorem distinctio nemo autem.Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam temporibus deleniti debitis nobis. Fugiat dolorem, deserunt consectetur sint non perspiciatis. Animi placeat voluptatem aliquid possimus dignissimos delectus aspernatur, assumenda omnis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ex quam similique reiciendis qui dolor facilis illo animi? Ullam, nam officiis cumque deserunt dolor nihil hbaksbdisldialjdasljdslalsjfjlsdnfljkaslfjkbasdlkjfbakjebflkjsbdlfkjbasdlfjbaiuehfiuwefljbslkjfbsdlkjbfaiebfibaslkjdfblksjbfkjsbdlfkjbasdlfkjasbfiuweiufhaibdjkbdjlkbjxkbvljbiofbwoiebfiuweifubsubfsdjblkjsdbabweoiufbilebfljsdbjlkbasdjfhbiuwfhuawhbjlsdbjlbsduisdbdifuarchitecto dolorem distinctio nemo autem",
-  );
+  const [descValue, setDescValue] = useState<string>(moreAboutMe);
   const setFixedCard = () => {
     if (window.scrollY >= 150) {
       setFixed(true);
@@ -48,7 +47,11 @@ const Profile = () => {
             <Tab>Experience</Tab>
           </TabList>
           <Grid templateColumns="repeat(7,1fr)">
-            <GridItem position="relative" colSpan={2} textAlign="right">
+            <GridItem
+              position="relative"
+              colSpan={2}
+              textAlign="right"
+            >
               <CardInformationNani fixed={fixed} />
             </GridItem>
             <GridItem colSpan={4}>

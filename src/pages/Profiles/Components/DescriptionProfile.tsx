@@ -20,7 +20,10 @@ const DescriptionProfile = (props: UpdateProps) => {
         More about me!
       </Text>
       {props.show ? (
-        <FormUpdateProfile show={props.show} setShow={props.setShow} />
+        <FormUpdateProfile
+          show={props.show}
+          setShow={props.setShow}
+        />
       ) : (
         <Text mt="2" fontSize="sm">
           {descValue?.descValue}

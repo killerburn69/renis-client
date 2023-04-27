@@ -1,19 +1,10 @@
 import { Flex, FormControl, FormLabel } from "@chakra-ui/react";
 import React from "react";
+import { bgEditInformationProfile } from "../../../theme/background/Background";
 
 const EditInformationNani = () => {
   return (
-    <Flex
-      justify="center"
-      align="center"
-      w="full"
-      zIndex="overlay"
-      h="100vh"
-      position="fixed"
-      top="0"
-      left="0"
-      bg="red"
-    >
+    <Flex sx={bgEditInformationProfile}>
       <FormControl mx="auto" w="-moz-fit-content">
         <FormLabel>Update Profile Nani</FormLabel>
       </FormControl>

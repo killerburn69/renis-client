@@ -1,5 +1,11 @@
 import React, { useContext } from "react";
-import { FormControl, Textarea, Button, Box, Flex } from "@chakra-ui/react";
+import {
+  FormControl,
+  Textarea,
+  Button,
+  Box,
+  Flex,
+} from "@chakra-ui/react";
 import { Context } from "../Profile";
 interface UpdateProps {
   show: boolean;
@@ -7,7 +13,9 @@ interface UpdateProps {
 }
 const FormUpdateProfile = (props: UpdateProps) => {
   const descValue = useContext(Context);
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
     descValue?.setDescValue(event.target.value);
     console.log(event.target.value);
   };
