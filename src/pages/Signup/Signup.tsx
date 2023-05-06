@@ -25,7 +25,6 @@ import { useToast } from "@chakra-ui/react";
 import { JwtPayload } from "../../models/interfaces";
 import { SignupInput } from "../../models/types";
 import { useMutation } from "@apollo/client";
-
 // const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 const Signup = () => {
   const toast = useToast();
@@ -55,6 +54,7 @@ const Signup = () => {
       datas.Role = Role.BABY;
     }
     console.log(datas);
+    localStorage.setItem("email", datas.Email);
     try {
       await signup({
         variables: {

@@ -8,7 +8,12 @@ interface FormInput {
   type: string;
   id: string;
   register: UseFormRegisterReturn<
-    "Email" | "Password" | "Confirm_Password" | "Otp"
+    | "Email"
+    | "Password"
+    | "Confirm_Password"
+    | "Otp"
+    | "email"
+    | "newPassword"
   >;
   error: FieldError | undefined;
 }
@@ -29,7 +34,6 @@ const Inputs = ({
         placeholder={placeholder}
         type={type}
         id={id}
-        // eslint-disable-next-line react/jsx-props-no-spreading
         {...register}
       />
       {error && (

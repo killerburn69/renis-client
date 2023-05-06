@@ -19,26 +19,38 @@ import Inputs from "../../components/Inputs";
 import RightBackground from "../../components/RightBackground";
 import { UserActiveAccount } from "../../validations/ActiveUserAccount";
 import { useToast } from "@chakra-ui/react";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { ACTIVE_ACCOUNT_MUTATION } from "../../graphql/mutation/auth.gql";
-import { ActivateAccountInput } from "../../models/types";
-import { ActivateResponse } from "../../models/interfaces";
-
+import { ActivateAccountInput, Email } from "../../models/types";
+import {
+  ActivateResponse,
+  UserIdResponse,
+} from "../../models/interfaces";
+import { GET_USERID_BY_EMAIL } from "../../graphql/query/getUserIdByEmail";
 // const sleep = (ms: number) =>
 //   new Promise((resolve) => setTimeout(resolve, ms));
 const ActiveAccount = () => {
   const toast = useToast();
+  const getEmail = localStorage.getItem("email");
   const [activateAccount, { data, error, loading }] = useMutation<
     { activateAccount: ActivateResponse },
     { activateInput: ActivateAccountInput }
   >(ACTIVE_ACCOUNT_MUTATION);
+  const { data: USERID } = useQuery<UserIdResponse, Email>(
+    GET_USERID_BY_EMAIL,
+    {
+      variables: {
+        email: getEmail ? JSON.parse(`"${getEmail}"`) : null,
+      },
+    },
+  );
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<ActivateAccountInput>({
     defaultValues: {
-      Email: "",
+      User_ID: "",
       Otp: "",
     },
     resolver: yupResolver(UserActiveAccount),
@@ -49,7 +61,10 @@ const ActiveAccount = () => {
     try {
       await activateAccount({
         variables: {
-          activateInput: datas,
+          activateInput: {
+            User_ID: USERID?.getUserByEmail.User_ID ?? "",
+            Otp: datas.Otp,
+          },
         },
       });
     } catch (e: any) {
@@ -57,6 +72,7 @@ const ActiveAccount = () => {
     }
   };
   useEffect(() => {
+    // setValue("User_ID", USERID?.getUserByEmail.User_ID);
     if (data) {
       toast({
         title: "Active Account Succesfully",
@@ -64,6 +80,7 @@ const ActiveAccount = () => {
         isClosable: true,
         position: "top-right",
       });
+      localStorage.removeItem("email");
       navigate("/signin");
     }
     if (error) {
@@ -95,14 +112,6 @@ const ActiveAccount = () => {
                 as="form"
                 onSubmit={handleSubmit(onSubmit)}
               >
-                <Inputs
-                  id="email"
-                  label="Email"
-                  placeholder="Your email"
-                  type="email"
-                  register={{ ...register("Email") }}
-                  error={errors.Email}
-                />
                 <Inputs
                   id="code"
                   label="Activation code"

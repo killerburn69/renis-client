@@ -1,7 +1,8 @@
+import { QueryResult } from "@apollo/client";
 import { Role } from "./enum";
 
 export type User = {
-  USER_ID: string;
+  User_ID: string;
   Email: string;
   Password: string;
   Otp: string;
@@ -22,6 +23,17 @@ export type SignupInput = {
 };
 
 export type ActivateAccountInput = {
-  Email: string;
+  User_ID: string;
   Otp: string;
+};
+export type ResetPasswordInput = {
+  Otp: string;
+  newPassword: string;
+  userId: string;
+};
+export type Email = {
+  email: string;
+};
+export type USERID = {
+  userID: QueryResult<User, Email>;
 };
