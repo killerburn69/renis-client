@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.7.3",
+    "@chakra-ui/anatomy": "^2.1.1",
     "@chakra-ui/icons": "^2.0.16",
     "@chakra-ui/react": "^2.4.6",
     "@emotion/react": "^11.10.5",
@@ -25,8 +26,8 @@
     "react-hook-form": "^7.41.5",
     "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.2",
     "swiper": "^8.4.5",
-    "typescript": "^4.9.4",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },
@@ -34,7 +35,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "eslintConfig": {
     "extends": [
@@ -53,5 +56,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/apollo-upload-client": "^17.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "apollo-upload-client": "^17.0.0",
+    "eslint": "^8.39.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "^2.8.8",
+    "typescript": "^4.9.3"
   }
 }

@@ -1,21 +1,48 @@
+import { Input, Box, Text } from "@chakra-ui/react";
 
-import { Input, FormLabel, Box } from '@chakra-ui/react'
-import {UseFormRegister, FieldValues } from 'react-hook-form'
-interface FormInput{
-  label: string
-  placeholder: string
-  type: string
-  id: string,
-  register:UseFormRegister<FieldValues>,
+import { UseFormRegisterReturn, FieldError } from "react-hook-form";
+
+interface FormInput {
+  label: string;
+  placeholder: string;
+  type: string;
+  id: string;
+  register: UseFormRegisterReturn<
+    | "Email"
+    | "Password"
+    | "Confirm_Password"
+    | "Otp"
+    | "email"
+    | "newPassword"
+  >;
+  error: FieldError | undefined;
 }
 
-const Inputs = ({ label, placeholder, type, id, register, ...rest}: FormInput) => {
-  return ( 
-    <Box>
-      <FormLabel fontWeight={'semibold'}>{label}</FormLabel>
-      <Input placeholder={placeholder} type={type} id={id} marginBottom={'3'} {...register(id)} {...rest}/>
+const Inputs = ({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  label,
+  placeholder,
+  type,
+  id,
+  register,
+  error,
+}: FormInput) => {
+  return (
+    <Box marginBottom={"4"}>
+      <Input
+        bg="grey.100"
+        placeholder={placeholder}
+        type={type}
+        id={id}
+        {...register}
+      />
+      {error && (
+        <Text color="red.800" textAlign="left" mt="1">
+          {error.message}
+        </Text>
+      )}
     </Box>
-  )
-}
+  );
+};
 
-export default Inputs
+export default Inputs;
