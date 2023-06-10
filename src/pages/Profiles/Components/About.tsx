@@ -8,8 +8,11 @@ import {
   textBackgroundImageBabyProfile,
 } from "../../../theme/background/Background";
 import DescriptionProfile from "./DescriptionProfile";
-
-const About = () => {
+import { Profile } from "../../../models/types";
+interface Data {
+  data: Profile | undefined;
+}
+const About = (props: Data) => {
   const [imgShow, setImgShow] = useState(ArrayBabyImgProfile[0].img);
   const [showForm, setShowForm] = useState(false);
 
@@ -49,8 +52,8 @@ const About = () => {
           </Box>
         ))}
       </Flex>
-      <Box transform="translateX(-5%)">
-        <Flex align="flex-start">
+      <Box>
+        <Flex align="flex-start" w="full">
           <IconButton
             onClick={() => setShowForm(true)}
             variant="iconModify"
@@ -58,7 +61,11 @@ const About = () => {
             aria-label="Edit information"
             icon={<EditIcon />}
           />
-          <DescriptionProfile show={showForm} setShow={setShowForm} />
+          <DescriptionProfile
+            show={showForm}
+            setShow={setShowForm}
+            data={props.data?.Description}
+          />
         </Flex>
       </Box>
     </React.Fragment>

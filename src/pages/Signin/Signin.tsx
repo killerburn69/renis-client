@@ -48,6 +48,7 @@ const Signin = () => {
   const navigate = useNavigate();
   const onSubmit = async (datas: LoginInput) => {
     // await sleep(2000);
+    localStorage.setItem("email", datas.Email);
     try {
       await login({
         variables: {
@@ -66,6 +67,7 @@ const Signin = () => {
         isClosable: true,
         position: "top-right",
       });
+      localStorage.setItem("token", JSON.stringify(data.login));
       navigate("/home");
     }
     if (error) {

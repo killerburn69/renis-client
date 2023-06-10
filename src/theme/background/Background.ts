@@ -167,6 +167,7 @@ export const backgroundBoxProfile = {
   py: "3",
   bg: "border",
   position: "absolute",
+  fontSize: "13",
 };
 export const backgroundBoxBeforeProfile = {
   content: "''",
@@ -259,12 +260,12 @@ export const bgAboutProfile = {
 export const bgCardInformationProfile = {
   px: "8",
   py: "6",
-  w: "fit-content",
+  w: "64",
   ml: "auto",
   bg: "white",
-  transform: "translateY(-30%)",
+  transform: "translateY(-25%)",
   borderRadius: "2xl",
-  boxShadow: "xl",
+  boxShadow: "3px 4px 28px rgba(0, 0, 0, 0.4)",
 };
 export const bgEditInformationProfile = {
   justify: "center",
@@ -284,3 +285,26 @@ export const bgTypeExperienceProfile = {
   cursor: "pointer",
   _hover: { color: "primary_color" },
 };
+export const bgEditCardProfile = {
+  zIndex: "1",
+  position: "absolute",
+  color: "white",
+  fontSize: "12",
+  top: "5",
+  left: "0",
+  px: "3",
+  py: "1",
+  bgColor: "purpleButton.500",
+  borderRadius: "lg",
+  _before: {
+    zIndex: "-1",
+    content: "''",
+    position: "absolute",
+    w: "3",
+    h: "3",
+    top: "-1",
+    transform: "rotate(45deg)",
+    bgColor: "purpleButton.500",
+  },
+};
+export const bgUploadAvatar = {};

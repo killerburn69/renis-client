@@ -20,7 +20,7 @@ function App() {
       {!pathData.find((path) => path === location.pathname) && (
         <>
           <NavbarWrapper />
-          <Overlay />
+          {/* <Overlay /> */}
         </>
       )}
       <Routes>

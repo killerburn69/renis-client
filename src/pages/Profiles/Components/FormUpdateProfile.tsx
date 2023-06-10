@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import {
   FormControl,
   Textarea,
@@ -6,30 +6,58 @@ import {
   Box,
   Flex,
 } from "@chakra-ui/react";
-import { Context } from "../Profile";
+import { useMutation } from "@apollo/client";
+import { UPDATE_PROFILE_INFO } from "../../../graphql/mutation/updateProfileInfo.gql";
+import { Profiles } from "../../../models/interfaces";
+import { UpdateProfileInput } from "../../../models/types";
+import { useForm } from "react-hook-form";
+import { GET_CURRENT_USER_PROFILE } from "../../../graphql/query/getCurrentUserProfile";
 interface UpdateProps {
   show: boolean;
   setShow: (show: boolean) => void;
+  description: string | undefined;
 }
 const FormUpdateProfile = (props: UpdateProps) => {
-  const descValue = useContext(Context);
-  const handleChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>,
-  ) => {
-    descValue?.setDescValue(event.target.value);
-    console.log(event.target.value);
+  const [updateProfileInfo, { data, error, loading }] = useMutation<
+    { updateProfileInfo: Profiles },
+    { updateProfileInput: UpdateProfileInput }
+  >(UPDATE_PROFILE_INFO);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<UpdateProfileInput>({
+    defaultValues: {
+      Description: props?.description,
+    },
+  });
+  const onSubmit = async (datas: UpdateProfileInput) => {
+    try {
+      await updateProfileInfo({
+        variables: {
+          updateProfileInput: datas,
+        },
+        refetchQueries: [{ query: GET_CURRENT_USER_PROFILE }],
+      });
+    } catch (e: unknown) {
+      console.log(e);
+    }
   };
-  const handleSubmit = (event: React.FormEvent<HTMLDivElement>) => {
-    event.preventDefault();
-    props.setShow(false);
-    alert("update thành công");
-  };
+  useEffect(() => {
+    if (data) {
+      alert(JSON.stringify(data));
+      props.setShow(false);
+    }
+    if (error) {
+      alert(JSON.stringify(data));
+    }
+  }, [data, error, props]);
   return (
     <Box border="2px solid #8682A7" borderRadius="lg">
-      <FormControl p="4" as="form" onSubmit={handleSubmit}>
+      <FormControl p="4" as="form" onSubmit={handleSubmit(onSubmit)}>
         <Textarea
-          value={descValue?.descValue}
-          onChange={handleChange}
+          {...register("Description")}
+          // value={props?.description}
           mb="5"
           placeholder="nhập đi"
           resize="none"
@@ -37,13 +65,13 @@ const FormUpdateProfile = (props: UpdateProps) => {
           size="md"
         />
         <Flex justify="flex-end" gap="3">
-          <Button type="submit" borderRadius="lg">
+          <Button type="submit" borderRadius="lg" isLoading={loading}>
             Update
           </Button>
           <Button
             onClick={() => props.setShow(false)}
-            type="submit"
             borderRadius="lg"
+            colorScheme="red"
           >
             Cancel
           </Button>

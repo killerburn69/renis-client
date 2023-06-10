@@ -1,10 +1,42 @@
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Image,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
 import BabyChart from "../../../imgs/babychart.svg";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DescriptionProfile from "./DescriptionProfile";
 import { ArraChartProfile } from "../../../dummydata/data";
-
-const Expectation = () => {
+import { Profile, UserId, User } from "../../../models/types";
+import ModalEditExpectation from "./ModalEditExpectation";
+import { useQuery } from "@apollo/client";
+import { GET_EXPECTATION } from "../../../graphql/query/getExpectation";
+import { ExpectationResponse } from "../../../models/interfaces";
+interface Data {
+  data: Profile | undefined;
+  dataUser: string | undefined;
+}
+const Expectation = (props: Data) => {
+  const userID = localStorage.getItem("userid");
+  const { data: EXPECTATIONID } = useQuery<
+    ExpectationResponse,
+    UserId
+  >(GET_EXPECTATION, {
+    variables: {
+      userId: props.dataUser
+        ? props.dataUser
+        : JSON.parse(`"${userID}"`),
+    },
+  });
+  ArraChartProfile[0].chartTitle = `Age range: ${EXPECTATIONID?.getExpectation.Age} years old`;
+  ArraChartProfile[1].chartTitle = `Characteristics: ${EXPECTATIONID?.getExpectation.Characteristics}`;
+  ArraChartProfile[2].chartTitle = `Type: ${EXPECTATIONID?.getExpectation.Type}`;
+  ArraChartProfile[3].chartTitle = `Paid: ${EXPECTATIONID?.getExpectation.Paid}$`;
+  ArraChartProfile[4].chartTitle = `Distance: ${EXPECTATIONID?.getExpectation.Distance} km`;
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [idShowModal, setIdShowModal] = useState(
     ArraChartProfile[0].id,
   );
@@ -14,10 +46,16 @@ const Expectation = () => {
   return (
     <Box>
       <Flex justify="flex-end" mb="14">
-        <Button variant="editCharactic" mt="0">
+        <Button onClick={onOpen} variant="editCharactic" mt="0">
           Edit characteristics
         </Button>
       </Flex>
+      <ModalEditExpectation
+        isOpen={isOpen}
+        onClose={onClose}
+        expectation={EXPECTATIONID?.getExpectation}
+        dataUserId={props.dataUser}
+      />
       <Box position="relative" w="fit-content" m="0 auto" mb="16">
         <Box
           w="96"
@@ -66,6 +104,7 @@ const Expectation = () => {
       <DescriptionProfile
         show={false}
         setShow={() => console.log("hello")}
+        data={props.data?.Description}
       />
     </Box>
   );

@@ -1,14 +1,13 @@
 import { Box, Text } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import FormUpdateProfile from "./FormUpdateProfile";
-import { Context } from "../Profile";
 
 interface UpdateProps {
   show: boolean;
   setShow: (show: boolean) => void;
+  data: string | undefined;
 }
 const DescriptionProfile = (props: UpdateProps) => {
-  const descValue = useContext(Context);
   return (
     <Box w="full">
       <Text
@@ -23,10 +22,11 @@ const DescriptionProfile = (props: UpdateProps) => {
         <FormUpdateProfile
           show={props.show}
           setShow={props.setShow}
+          description={props?.data}
         />
       ) : (
         <Text mt="2" fontSize="sm">
-          {descValue?.descValue}
+          {props?.data}
         </Text>
       )}
     </Box>

@@ -6,3 +6,10 @@ export enum Role {
   NANY = "NANY",
   VIP_NANY = "VIP_NANY",
 }
+export enum BabyCharacteristics {
+  CONFIDENT = "CONFIDENT",
+  DYNAMIC = "DYNAMIC",
+  SHY = "SHY",
+  DOCILE = "DOCILE",
+  NAUGHTY = "NAUGHTY",
+}
